@@ -13,27 +13,50 @@ This skill exists because AI-generated technical prose has a tell: em-dashes eve
 marketing adjectives, bullet-summary-itis, define-before-show, and a flat encouraging register
 that no real author uses. The rules below kill those tells.
 
-## The pipeline
+## The agent flow
 
-Authoring one chapter is three roles. Run them in order.
+Authoring one chapter is three agents plus a mechanical gate, orchestrated in a pipeline with one
+bounded loop. The orchestrator (you, the main session) runs the steps; the agents do not talk to
+each other.
 
-1. **Write** (the `article-writer` agent, or you directly). Produce the chapter markdown plus its
-   code folder, following the voice guide and the TDD loop. All code must be runnable and tested.
-2. **Validate** (mechanical). Run the validator. It must pass with zero errors before review:
+```
+                    ┌──────────────────────────────────────────────┐
+                    │                  (fix loop, max 2)            │
+                    ▼                                               │
+  article-writer ──> validate_article.py ──> article-student  ┐    │
+   writes chapter +   mechanical gate:        (does it teach   │    │
+   code + tests,      em-dashes, links,        and flow?)      ├──> orchestrator
+   self-validates     uv, structure.                           │    decides:
+        ▲             MUST be 0 errors    ──> article-reviewer  ┘    ship / revise / rework
+        │             before review.         (voice + accuracy,          │
+        │                                      re-runs validator           │
+        └────────────── revise/rework ◀──────── and the tests)  ───────────┘
+                         with specific fixes
+```
+
+Ordering, precisely:
+
+1. **Write** (`article-writer`). Produces the chapter markdown plus its runnable, tested code
+   folder. Runs the validator itself and returns only when it is green and `uv run pytest`/`ruff`
+   on its folder pass.
+2. **Validate** (mechanical, deterministic, no model). The gate. Zero errors required before any
+   review agent runs. Cheap, so it runs first and runs again after every fix.
    ```bash
    uv run python .claude/skills/article-writer/scripts/validate_article.py <chapter>.md
    ```
-3. **Review** (two agents, in parallel):
-   - `article-student` reads the chapter as a learner and reports where it stops making sense,
-     where a leap is too big, or where the flow breaks.
-   - `article-reviewer` checks voice, accuracy, and the rules the validator can't see (does the
-     prose actually explain the concept? is the humor forced? does the failing-test output match
-     the code?).
+3. **Review** (`article-student` and `article-reviewer`, dispatched **in parallel**). They are two
+   independent lenses and never see each other's output:
+   - `article-student` reads as a learner: where does it stop making sense, where is a leap too
+     big, does the failing-test output match the code, does the order help comprehension.
+   - `article-reviewer` guards voice and accuracy: re-runs the validator and the tests, checks the
+     prose against the voice profile, verifies every claim and worked example.
+4. **Decide and loop** (orchestrator). Merge both reports. If the reviewer says ship, done. If it
+   says revise or rework, hand the specific fixes back to the writer, who edits and re-validates.
+   Bound the loop to two passes; anything still open after that is reported, not silently retried.
 
-   Apply their feedback, re-validate, and only then consider the chapter done.
-
-For a batch of chapters, run one `article-writer` agent per chapter (they touch disjoint files),
-then validate and review each.
+For a **batch**, run one `article-writer` per chapter (they touch disjoint files: only their own
+`<slug>.md` and `<code_dir>/`), then validate and review each. The writers run concurrently; the
+per-chapter validate/review/fix loop is independent per chapter.
 
 ## The voice, in one breath
 
