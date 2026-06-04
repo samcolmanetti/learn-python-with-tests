@@ -1,6 +1,6 @@
 # Prefix Sum
 
-**[You can find all the code for this chapter here](https://github.com/USER/python-with-tests/tree/main/prefix_sum)**
+**[You can find all the code for this chapter here](https://github.com/samcolmanetti/python-with-tests/tree/main/prefix_sum)**
 
 Like two pointers, prefix sum is an **interview pattern**: a reusable [`prefix_sum/_template.py`](prefix_sum/_template.py)
 plus worked problems in `prefix_sum/solutions/`, each built test-first. The idea is small and it
