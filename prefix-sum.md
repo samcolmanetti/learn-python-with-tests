@@ -1,6 +1,6 @@
 # Prefix Sum
 
-**[You can find all the code for this chapter here](prefix_sum/)**
+**[You can find all the code for this chapter here](https://github.com/USER/python-with-tests/tree/main/prefix_sum)**
 
 Like two pointers, prefix sum is an **interview pattern**: a reusable [`prefix_sum/_template.py`](prefix_sum/_template.py)
 plus worked problems in `prefix_sum/solutions/`, each built test-first. The idea is small and it
@@ -85,9 +85,20 @@ over and over) are the cases that pin down the behaviour we actually want.
 
 ### Try to run the test
 
-We've imported `NumArray` from a module that doesn't define it yet. Let's give it a `NumArray`
-that stores the array but returns a stub `0` from `sum_range`, so we can watch the test fail for
-the right reason.
+We've imported `NumArray` from a module that doesn't define it yet, so the import is the first
+thing to break:
+
+```
+ImportError: cannot import name 'NumArray' from 'range_sum_query_immutable'
+```
+
+No class, no methods, nothing. Listen to the error: it's telling us where to start.
+
+### Write the minimal amount of code for the test to run and check the failing test output
+
+Give it a `NumArray` that stores the array but returns a stub `0` from `sum_range`. We're not
+solving anything yet. We just want the test to run so we can watch it fail on the value, which
+proves the test checks what we think it does.
 
 ```python
 from __future__ import annotations
@@ -141,6 +152,13 @@ The constructor is O(n) and runs once. After that, every `sum_range` is a single
 O(1), no matter how many times it's called. That's the trade: a one-time setup cost buys
 constant-time queries forever.
 
+### Refactor
+
+There's little to tidy in five lines, but it's worth naming the shape. The constructor is exactly
+`build_prefix` from the template, inlined, and `sum_range` is exactly `range_sum`. We could call
+the template functions instead of rewriting them, but spelling it out once in the class makes the
+chapter stand on its own. Re-run the tests to confirm nothing moved.
+
 ## Problem 2: Subarray Sum Equals K
 
 > Count the contiguous subarrays whose elements sum to `k`.
@@ -191,7 +209,15 @@ quietly gets this wrong.
 
 ### Try to run the test
 
-Stub `subarray_sum` to return `0`:
+The function doesn't exist yet, so the import is what fails first:
+
+```
+ImportError: cannot import name 'subarray_sum' from 'subarray_sum_equals_k'
+```
+
+### Write the minimal amount of code for the test to run and check the failing test output
+
+Stub `subarray_sum` to return `0` so the tests run:
 
 ```python
 from __future__ import annotations
@@ -248,7 +274,13 @@ single element can't pair with itself as a zero-length subarray. And `{0: 1}` is
 makes "the prefix up to here is exactly `k`" count as a hit, which is why `test_single_element_hit`
 (`[5]` with `k=5`) returns `1` rather than `0`.
 
-One pass, O(n) time, O(n) space for the dict. The nested loop is gone.
+### Refactor
+
+The body is already tight, so the refactor here is about understanding, not lines. Notice we never
+built the full `prefix` array from the template: we only ever need the *current* running sum and a
+count of the ones we've seen, so we carry a single number instead of a list. That's the same prefix
+idea, streamed. One pass, O(n) time, O(n) space for the dict, and the nested loop is gone. Re-run
+the tests.
 
 ## Problem 3: Product of Array Except Self
 
@@ -288,6 +320,14 @@ zero, so the whole result is zeros. Division can't express that without special-
 products express it for free.
 
 ### Try to run the test
+
+Nothing to import yet:
+
+```
+ImportError: cannot import name 'product_except_self' from 'product_of_array_except_self'
+```
+
+### Write the minimal amount of code for the test to run and check the failing test output
 
 Stub it to return zeros so the test runs:
 
