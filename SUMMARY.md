@@ -12,16 +12,25 @@
 
 * [Hello, pytest](hello-pytest.md)
 * [Numbers](numbers.md)
+* [Control flow](control-flow.md)
 * [Iteration](iteration.md)
 * [Lists & slicing](lists-and-slicing.md)
 * [Strings](strings.md)
 * [Dicts & sets](dicts-and-sets.md)
 * [Comprehensions & generators](comprehensions.md)
 * [Classes & dataclasses](classes-and-dataclasses.md)
+* [Object-oriented Python](object-oriented-python.md)
 * [Exceptions & errors](exceptions.md)
 * [Iterators & iterables](iterators.md)
 * [Type hints](type-hints.md)
 * [Decorators](decorators.md)
+
+## Applied Python
+
+* [File handling & context managers](file-handling.md)
+* [Modules & packaging](modules-and-packaging.md)
+* [Concurrency](concurrency.md)
+* [Internet & HTTP calls](internet-and-http.md)
 
 ## Testing fundamentals
 

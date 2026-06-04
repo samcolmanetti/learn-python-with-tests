@@ -85,17 +85,29 @@ def check(path: Path) -> tuple[list[str], list[str]]:
         if phrase in prose_lower:
             errors.append(f"banned phrase: '{phrase}'. Cut it or say the concrete thing instead.")
 
-    # 3. Code-link line must exist and be a RELATIVE path (not an absolute URL).
+    # 3. Code-link line must exist and point at a GitHub tree URL, which is the only form that
+    #    resolves on the published Honkit site (a bare folder link 404s, since a directory has no
+    #    page). This mirrors how Learn Go with Tests links its code.
     m = CODE_LINK_RE.search(raw)
     if not m:
         warnings.append(
             "no code-link line found. Chapters with a code folder should open with "
-            "**[You can find all the code for this chapter here](folder/)**."
+            "**[You can find all the code for this chapter here](https://github.com/USER/python-with-tests/tree/main/folder)**."
         )
-    elif m.group(1).startswith("http"):
-        errors.append(
-            f"code-link points to an absolute URL ({m.group(1)}). Use a relative path like (two_pointers/)."
-        )
+    else:
+        target = m.group(1)
+        if target.startswith("https://github.com/") and "/tree/" in target:
+            if "USER" in target:
+                warnings.append(f"code-link still has the USER placeholder ({target}). Set the repo owner.")
+        elif target.startswith("http"):
+            errors.append(
+                f"code-link is a non-GitHub absolute URL ({target}). Use a GitHub tree URL so it resolves on the site."
+            )
+        else:
+            errors.append(
+                f"code-link is a relative folder ({target}); it 404s on the Honkit site because a directory has no "
+                "page. Use a GitHub tree URL like https://github.com/USER/python-with-tests/tree/main/folder."
+            )
 
     # 4. Tooling commands must use uv, not raw venv/pip.
     if re.search(r"python3?\s+-m\s+venv", prose) or re.search(r"\bpip\s+install\b", prose):
@@ -114,9 +126,19 @@ def check(path: Path) -> tuple[list[str], list[str]]:
         if not re.search(r"\b\w+'(s|t|ll|re|ve|d|m)\b", prose):
             warnings.append("no contractions found. The book uses them throughout (we'll, it's, don't).")
 
-    # TDD chapters should walk the loop. Heuristic: a code folder link but no 'test first'.
-    if m and "write the test first" not in prose_lower and "wrapping up" not in prose_lower:
-        warnings.append("no 'Write the test first' or 'Wrapping up' heading. Most chapters walk the TDD loop.")
+    # TDD chapters should walk the FULL loop. A chapter with a code folder should show every phase,
+    # including the often-skipped "minimal amount of code" stub step and a refactor.
+    if m:
+        cycle = [
+            ("write the test first", "Write the test first"),
+            ("write the minimal amount of code", "Write the minimal amount of code for the test to run (the stub step)"),
+            ("make it pass", "Write enough code to make it pass"),
+            ("refactor", "Refactor"),
+            ("wrapping up", "Wrapping up"),
+        ]
+        for needle, label in cycle:
+            if needle not in prose_lower:
+                warnings.append(f"missing TDD phase: '{label}'. Show every phase of the loop.")
 
     return errors, warnings
 
