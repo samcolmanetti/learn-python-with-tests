@@ -6,7 +6,9 @@
 
 # [Chapter title]
 
-**[You can find all the code for this chapter here](https://github.com/your-org/python-with-tests/tree/main/CHAPTER_FOLDER)**
+**[You can find all the code for this chapter here](CHAPTER_FOLDER/)**
+<!-- Replace CHAPTER_FOLDER with this chapter's snake_case code directory, e.g. (two_pointers/). -->
+
 
 *One or two sentences: what will the reader be able to do after this chapter, and what
 Python feature or interview pattern does it teach?*

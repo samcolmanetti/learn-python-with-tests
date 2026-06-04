@@ -1,5 +1,11 @@
 {
     "structure": {
         "readme": "gb-readme.md"
+    },
+    "plugins": ["code"],
+    "pluginsConfig": {
+        "code": {
+            "copyButtons": true
+        }
     }
 }

@@ -20,8 +20,8 @@ def topo_sort(graph: dict) -> list | None:
     indegree = {node: 0 for node in graph}
     for node in graph:
         for neighbor in graph[node]:
+            # A neighbor that never appears as a key (a pure sink) still needs an entry.
             indegree[neighbor] = indegree.get(neighbor, 0) + 1
-            indegree.setdefault(node, indegree.get(node, 0))
 
     queue = deque(node for node, deg in indegree.items() if deg == 0)
     order = []

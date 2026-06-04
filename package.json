@@ -8,6 +8,7 @@
     "build": "honkit build"
   },
   "devDependencies": {
+    "gitbook-plugin-code": "^0.1.0",
     "honkit": "^6.0.0"
   }
 }
