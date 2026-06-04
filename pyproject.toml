@@ -24,8 +24,13 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 # Don't let the gitignored reference clone or the book build dir get collected.
-norecursedirs = ["references", "_book", "node_modules", ".venv", "*.egg-info"]
+# Keep pytest's default dot-dir ignores (".*" covers .venv, .hypothesis, .git, .ruff_cache)
+# and add our project-specific ones.
+norecursedirs = [".*", "references", "_book", "node_modules", "*.egg-info", "build", "dist"]
 addopts = "-ra"
+markers = [
+    "slow: marks slower tests (deselect with '-m \"not slow\"')",
+]
 
 [tool.ruff]
 target-version = "py39"
