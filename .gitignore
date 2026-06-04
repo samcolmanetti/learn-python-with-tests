@@ -1,0 +1,30 @@
+# Reference material — design reference only, not part of the book
+references/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Book build output
+_book/
+node_modules/
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+# Editors / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store

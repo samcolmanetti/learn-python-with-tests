@@ -1,0 +1,13 @@
+{
+  "name": "learn-python-with-tests",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitBook build tooling for Learn Python with Tests.",
+  "scripts": {
+    "serve": "honkit serve",
+    "build": "honkit build"
+  },
+  "devDependencies": {
+    "honkit": "^6.0.0"
+  }
+}

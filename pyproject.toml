@@ -1,0 +1,40 @@
+[project]
+name = "python-with-tests"
+version = "0.1.0"
+description = "Learn Python for coding interviews, test-first — a TDD-driven, patterns-first interview prep book."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+# Runtime deps: none. Every chapter is plain-stdlib Python so solutions stay
+# interview-realistic (no third-party imports allowed in a real interview).
+
+[dependency-groups]
+# Dev tooling. Install with `uv sync` (preferred) or
+# `pip install pytest hypothesis ruff` into a venv.
+dev = [
+    "pytest>=8.0",
+    "hypothesis>=6.0",
+    "ruff>=0.5",
+]
+
+[tool.pytest.ini_options]
+# Discover every chapter's tests. Each chapter keeps its tests next to its code.
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+# Don't let the gitignored reference clone or the book build dir get collected.
+norecursedirs = ["references", "_book", "node_modules", ".venv", "*.egg-info"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+extend-exclude = ["references", "_book"]
+
+[tool.ruff.lint]
+# Keep it friendly for a teaching repo: errors, pyflakes, imports, bugbear, pyupgrade.
+select = ["E", "F", "I", "B", "UP"]
+ignore = [
+    "E501",  # long lines are fine in teaching prose/snippets
+]
