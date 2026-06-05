@@ -1,0 +1,10 @@
+# Deploy the book to Netlify (works with a private repo on the free tier).
+# In Netlify: "Add new site" -> "Import from Git" -> pick this repo. These settings are
+# picked up automatically.
+
+[build]
+  command = "npm install && npx honkit build . _book"
+  publish = "_book"
+
+[build.environment]
+  NODE_VERSION = "20"
