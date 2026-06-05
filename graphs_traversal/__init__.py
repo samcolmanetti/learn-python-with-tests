@@ -1,1 +1,1 @@
-"""graphs_traversal pattern — see ../graphs-traversal.md."""
+"""graphs_traversal pattern, see ../graphs-traversal.md."""

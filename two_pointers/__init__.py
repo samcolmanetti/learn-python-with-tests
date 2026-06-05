@@ -1,1 +1,1 @@
-"""two_pointers pattern — see ../two-pointers.md."""
+"""two_pointers pattern, see ../two-pointers.md."""

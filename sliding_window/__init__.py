@@ -1,1 +1,1 @@
-"""sliding_window pattern — see ../sliding-window.md."""
+"""sliding_window pattern, see ../sliding-window.md."""

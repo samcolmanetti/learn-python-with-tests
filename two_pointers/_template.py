@@ -1,4 +1,4 @@
-"""Two Pointers — opposite-direction and same-direction templates.
+"""Two Pointers, opposite-direction and same-direction templates.
 
 Two pointers turn many O(n^2) brute forces into O(n) single passes by maintaining an
 *invariant* between two indices.
@@ -10,7 +10,7 @@ Two pointers turn many O(n^2) brute forces into O(n) single passes by maintainin
   scans while the slow pointer marks a boundary. Use for in-place filtering (remove
   duplicates, move zeros) and sliding boundaries.
 
-These are directional skeletons — adapt the `process`/`condition` hooks per problem.
+These are directional skeletons, adapt the `process`/`condition` hooks per problem.
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ def two_pointers_opposite(
     """Walk two pointers inward until they meet.
 
     ``should_move_left(left_val, right_val)`` decides which end advances. Returns the final
-    ``(left, right)`` indices — most problems read off an answer as they go; this skeleton
+    ``(left, right)`` indices, most problems read off an answer as they go; this skeleton
     just shows the movement.
     """
     left, right = 0, len(arr) - 1

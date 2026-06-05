@@ -1,35 +1,28 @@
 # Hello, pytest
 
-**[You can find all the code for this chapter here](hello_pytest/)**
+**[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/hello_pytest)**
 
 This is where the whole book starts: the test-driven loop, in Python, with
-[`pytest`](https://docs.pytest.org). By the end you will have written a tiny function the way
-we will write every function from here on — **test first**.
+[`pytest`](https://docs.pytest.org). We'll write a tiny function the way we write every function
+from here on, test first.
 
 ## Set up
 
 You need Python 3.9+ and `pytest`. If you followed [Install Python & tooling](install-python.md)
-you already have them. Quick version:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install pytest
-```
-
-Run the whole suite any time with `pytest`. Run one chapter with `pytest hello_pytest/`.
+you already have a project wired up with `uv`. From the repo root, `uv sync` installs everything,
+and `uv run pytest` runs the suite. Run one chapter with `uv run pytest hello_pytest/`.
 
 ## The TDD loop
 
 Every chapter walks the same cycle:
 
-1. **Write the test first** — describe the behaviour you want as a failing test.
-2. **Run it and watch it fail** — prove the test is wired up and fails for the right reason.
-3. **Write the minimal code** to make it run, check the failure message.
+1. **Write the test first.** Describe the behaviour you want as a failing test.
+2. **Try to run the test.** Prove it's wired up and fails for the right reason.
+3. **Write the minimal code** so it runs, then read the failure message.
 4. **Make it pass** with the simplest code that works.
-5. **Refactor** — improve the code with the test as your safety net.
+5. **Refactor** with the test as your safety net.
 
-It feels slow for five minutes and then it makes you fast forever. In an interview it is your
+It feels slow for five minutes and then it makes you fast forever. In an interview it's your
 secret weapon: a failing test pins down exactly what "done" means before you write a line.
 
 ## Write the test first
@@ -50,29 +43,33 @@ No assertion library, no boilerplate.
 
 ## Try to run the test
 
+Run `uv run pytest`:
+
 ```
 ImportError: cannot import name 'hello' from 'hello_pytest.v1.hello_pytest'
 ```
 
-It fails — there is no code yet. Good. A test you have never seen fail is a test you do not
+It fails because there's no code yet. Good. A test you've never seen fail is a test you don't
 trust.
 
 ## Write the minimal amount of code for the test to run and check the failing test output
 
-Create `hello_pytest/v1/hello_pytest.py` with just enough to *run* — let's deliberately return
-the wrong thing first:
+Create `hello_pytest/v1/hello_pytest.py` with just enough to *run*. Let's deliberately return the
+wrong thing first, so we can watch the test fail on the value rather than on a missing name:
 
 ```python
 def hello():
     return ""
 ```
 
+Run `uv run pytest`:
+
 ```
 >       assert hello() == "Hello, world"
 E       AssertionError: assert '' == 'Hello, world'
 ```
 
-Now the test runs and fails on the assertion, with a clear diff. That is the failure we want.
+Now the test runs and fails on the assertion, with a clear diff. That's the failure we want.
 
 ## Write enough code to make it pass
 
@@ -85,14 +82,26 @@ def hello():
 1 passed
 ```
 
-Green. That is the loop. Commit it to muscle memory.
+Green. That's the loop.
 
-## Repeat for new requirements — say hello to a person
+## Refactor
 
-Now make `hello` greet a specific person, while still defaulting to `"world"`. New tests in
-`hello_pytest/v2/test_hello_pytest.py`:
+There's nothing to tidy in a one-line function. Even so, the refactor step always happens: you
+look at the code with green tests behind you and decide whether it can read better. Here it can't,
+so we move on. Re-run the tests to confirm nothing moved.
+
+## Say hello to a person
+
+Our next requirement is to greet a specific person, while still defaulting to `"world"`.
+
+### Write the test first
+
+New tests in `hello_pytest/v2/test_hello_pytest.py`:
 
 ```python
+from .hello_pytest import hello
+
+
 def test_greets_a_person_by_name():
     assert hello("Chris") == "Hello, Chris"
 
@@ -101,7 +110,17 @@ def test_defaults_to_world_when_no_name_given():
     assert hello() == "Hello, world"
 ```
 
-Make them pass:
+### Try to run the test
+
+Run `uv run pytest`. The new `hello` still ignores its argument, so the named case fails on the
+value:
+
+```
+>       assert hello("Chris") == "Hello, Chris"
+E       AssertionError: assert 'Hello, world' == 'Hello, Chris'
+```
+
+### Write enough code to make it pass
 
 ```python
 def hello(name=""):
@@ -110,13 +129,77 @@ def hello(name=""):
     return "Hello, " + name
 ```
 
-A **default argument** (`name=""`) keeps the no-argument call working. Two behaviours, two
-tests, both green.
+A **default argument** (`name=""`) keeps the no-argument call working. Two behaviours, two tests,
+both green.
 
-## Refactor — and add a language
+### Refactor
 
-With tests guarding us, we can grow the design. `hello_pytest/v3` adds a `language` argument
-and pulls the greeting prefixes out as named constants:
+The two cases each have a test guarding them, so we're free to tidy. The function already reads
+cleanly: one branch for the default, one string to build. We leave it and re-run the tests.
+
+## Add a language
+
+Our next requirement is to greet in a chosen language, falling back to English for anything we
+don't know.
+
+### Write the test first
+
+Rather than a new test function per language, use `@pytest.mark.parametrize` to run the same
+assertion over a table of cases. Each row is reported as its own test, so a failure tells you
+exactly *which* case broke. Create `hello_pytest/v3/test_hello_pytest.py`:
+
+```python
+import pytest
+
+from .hello_pytest import hello
+
+
+@pytest.mark.parametrize(
+    ("name", "language", "expected"),
+    [
+        ("Chris", "", "Hello, Chris"),
+        ("", "", "Hello, world"),
+        ("Elodie", "Spanish", "Hola, Elodie"),
+        ("Lauren", "French", "Bonjour, Lauren"),
+        ("", "Spanish", "Hola, world"),
+        ("Chris", "Klingon", "Hello, Chris"),  # unknown language falls back to English
+    ],
+)
+def test_hello(name, language, expected):
+    assert hello(name, language) == expected
+```
+
+### Try to run the test
+
+Run `uv run pytest`. The `hello` from before takes no `language` argument, so each row blows up
+on the call:
+
+```
+TypeError: hello() takes from 0 to 1 positional arguments but 2 were given
+```
+
+### Write enough code to make it pass
+
+Add a `language` argument and branch on it in `hello_pytest/v3/hello_pytest.py`:
+
+```python
+def hello(name="", language=""):
+    if name == "":
+        name = "world"
+    if language == "Spanish":
+        return "Hola, " + name
+    if language == "French":
+        return "Bonjour, " + name
+    return "Hello, " + name
+```
+
+All six rows pass, including the Klingon case, which falls through to the English greeting.
+
+### Refactor
+
+That works, but the greeting logic is now tangled into `hello`, and the prefixes are bare strings
+scattered through the branches. With the tests guarding us, we can grow the design: pull the
+prefixes out as named constants and move the language choice into its own function.
 
 ```python
 ENGLISH_HELLO_PREFIX = "Hello, "
@@ -142,37 +225,8 @@ def greeting_prefix(language):
     return ENGLISH_HELLO_PREFIX
 ```
 
-Extracting `greeting_prefix` keeps `hello` readable and gives each language one obvious place
-to live.
-
-### One test, many cases: `parametrize`
-
-Rather than a new test function per language, use `@pytest.mark.parametrize` to run the same
-assertion over a table of cases:
-
-```python
-import pytest
-
-from .hello_pytest import hello
-
-
-@pytest.mark.parametrize(
-    ("name", "language", "expected"),
-    [
-        ("Chris", "", "Hello, Chris"),
-        ("", "", "Hello, world"),
-        ("Elodie", "Spanish", "Hola, Elodie"),
-        ("Lauren", "French", "Bonjour, Lauren"),
-        ("", "Spanish", "Hola, world"),
-        ("Chris", "Klingon", "Hello, Chris"),  # unknown language falls back to English
-    ],
-)
-def test_hello(name, language, expected):
-    assert hello(name, language) == expected
-```
-
-Each row is reported as its own test, so a failure tells you exactly *which* case broke. You
-will use `parametrize` constantly — it is the natural way to cover edge cases without copy-paste.
+Extracting `greeting_prefix` keeps `hello` readable and gives each language one obvious place to
+live. Re-run the tests: still green, and now the design is cleaner than the code that passed.
 
 ## Wrapping up
 

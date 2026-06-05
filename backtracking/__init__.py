@@ -1,1 +1,1 @@
-"""backtracking pattern — see ../backtracking.md."""
+"""backtracking pattern, see ../backtracking.md."""

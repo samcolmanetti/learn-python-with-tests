@@ -1,4 +1,4 @@
-"""Convert between integers and Roman numerals — now both directions.
+"""Convert between integers and Roman numerals, now both directions.
 
 See v1 for the value/symbol table rationale. ``from_roman`` greedily matches the same pairs
 from the front of the string, which is the natural inverse of ``to_roman``.

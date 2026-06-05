@@ -4,15 +4,15 @@ The roadmap (the sidebar) is ordered deliberately. Here's how to get the most ou
 
 ## The path
 
-1. **Getting started** — install the tools, read [Why TDD for interviews](why-tdd-for-interviews.md).
-2. **Python fundamentals** — even if you know another language, skim these. Python's slicing,
+1. **Getting started.** Install the tools, then read [Why TDD for interviews](why-tdd-for-interviews.md).
+2. **Python fundamentals.** Even if you know another language, skim these. Python's slicing,
    immutability, and built-ins are where interview bugs hide.
-3. **Testing fundamentals** — `pytest` and Hypothesis. You'll use them in every later chapter.
-4. **Complexity & Python's toolbox** — Big-O and the standard-library data structures. Don't
+3. **Testing fundamentals.** `pytest` and Hypothesis. You'll use them in every later chapter.
+4. **Complexity and Python's toolbox.** Big-O and the standard-library data structures. Don't
    skip this; the right structure is half of most solutions.
-5. **Interview patterns** — the main event. Work them roughly in order; later patterns (graphs,
+5. **Interview patterns.** The main event. Work them roughly in order; later patterns (graphs,
    DP) lean on earlier ones (DFS/BFS, recursion).
-6. **Meta** — [anti-patterns](anti-patterns.md) and [speedrun strategy](speedrun-strategy.md)
+6. **Meta.** [Anti-patterns](anti-patterns.md) and [speedrun strategy](speedrun-strategy.md)
    once you've got a few patterns under your belt.
 
 ## Study one pattern at a time
@@ -22,7 +22,7 @@ For each pattern chapter:
 1. **Read the "when to reach for it" section first.** Recognising *which* pattern a problem
    wants is the skill interviews actually test. Train the trigger, not just the technique.
 2. **Walk the template** until you can reproduce its skeleton from memory.
-3. **Do the worked problems test-first** — and genuinely write the test before peeking at the
+3. **Do the worked problems test-first**, and genuinely write the test before peeking at the
    solution. Cover the screen if you have to.
 4. **Then redo each problem from a blank file.** This is the highest-value step (see below).
 
@@ -39,7 +39,7 @@ it from nothing. After you've worked a problem:
 ## Spaced repetition beats cramming
 
 Patterns fade. Re-derive a problem the next day, then a few days later, then a week later. The
-re-derivations get fast, and *fast* is the goal — in an interview you want the pattern to surface
+re-derivations get fast, and *fast* is the goal: in an interview you want the pattern to surface
 in seconds. A simple system: keep a list of problems you've solved with the date; re-do the
 oldest few at the start of each session.
 
@@ -58,9 +58,9 @@ on the reds, not on padding the green count.
 
 ## A realistic cadence
 
-- **Per session (~60–90 min):** one new pattern (read + worked problems), then re-derive 2–3
+- **Per session (~60 to 90 min):** one new pattern (read plus worked problems), then re-derive 2 to 3
   problems from previous sessions.
-- **Weekly:** one [speedrun](speedrun-strategy.md) — timed, no reference, mixed patterns — to
+- **Weekly:** one [speedrun](speedrun-strategy.md), timed, no reference, mixed patterns, to
   simulate interview pressure.
 
 Next: start with [Hello, pytest](hello-pytest.md), or jump to the patterns with

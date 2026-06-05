@@ -1,8 +1,8 @@
-"""Topological Sort — order a DAG so every edge points "forward" (Kahn's algorithm).
+"""Topological Sort, order a DAG so every edge points "forward" (Kahn's algorithm).
 
 Compute each node's in-degree (number of prerequisites). Repeatedly take a node with
 in-degree 0, append it to the order, and decrement its neighbours' in-degrees, enqueuing any
-that reach 0. If you can't place every node, the graph has a **cycle** — there is no valid
+that reach 0. If you can't place every node, the graph has a **cycle**, there is no valid
 ordering.
 
 This doubles as cycle detection: ``topo_sort`` returns ``None`` when the graph is cyclic.

@@ -56,7 +56,7 @@ style validator and its tests are green.
   `<code_dir>`.
 - **Never name a code folder after a stdlib module** (`math`, `string`, `queue`, `heapq`). Use the
   code directory you were given.
-- **No em-dashes.** If you are about to type `—`, stop and use a comma, colon, parentheses, or two
+- **No em-dashes.** If you are about to type an em-dash, stop and use a comma, colon, parentheses, or two
   sentences.
 
 ## What you return

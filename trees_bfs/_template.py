@@ -1,4 +1,4 @@
-"""Breadth-First Search on a binary tree — level-order traversal.
+"""Breadth-First Search on a binary tree, level-order traversal.
 
 BFS visits the tree level by level using a queue (``collections.deque``). The key trick for
 "per level" problems: snapshot ``len(queue)`` at the start of each level so you process

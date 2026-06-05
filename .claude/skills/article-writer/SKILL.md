@@ -62,7 +62,7 @@ per-chapter validate/review/fix loop is independent per chapter.
 
 Read `references/voice-and-format.md` for the full profile. The non-negotiables:
 
-- **No em-dashes. None.** Not `—`, not `–`, not ` -- ` as a dash. Use a comma, a colon,
+- **No em-dashes. None.** Not the em-dash character, not an en-dash, not ` -- ` as a dash. Use a comma, a colon,
   parentheses, or two sentences. This is the rule the reader cares about most, and the validator
   fails the build on it.
 - **Contractions throughout.** `we'll`, `it's`, `don't`, `you'll`. Their absence reads as a robot.
@@ -137,5 +137,5 @@ uv run python .claude/skills/article-writer/scripts/validate_article.py --all
 
 ## References
 
-- `references/voice-and-format.md` — the full Chris James voice and format profile.
-- `references/banned-patterns.md` — the AI-slop checklist with human rewrites.
+- `references/voice-and-format.md`, the full Chris James voice and format profile.
+- `references/banned-patterns.md`, the AI-slop checklist with human rewrites.

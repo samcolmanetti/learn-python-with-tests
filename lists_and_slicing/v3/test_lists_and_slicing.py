@@ -33,6 +33,6 @@ def test_slicing_makes_a_copy_not_an_alias():
 
 def test_plain_assignment_is_an_alias():
     original = [1, 2, 3]
-    alias = original  # NOT a copy — same underlying list object
+    alias = original  # NOT a copy, same underlying list object
     alias.append(4)
     assert original == [1, 2, 3, 4]

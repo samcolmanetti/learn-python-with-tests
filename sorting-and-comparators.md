@@ -1,11 +1,11 @@
 # Sorting & custom comparators
 
-**[You can find all the code for this chapter here](sorting_and_comparators/)**
+**[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/sorting_and_comparators)**
 
-Sorting shows up in a huge fraction of interview solutions — as the whole answer, or as the
-setup that unlocks two pointers or a greedy sweep. Python's sort is excellent; the skill is
-knowing how to sort by *the right thing*. That's the `key` function. Let's build the techniques
-test-first.
+Sorting shows up in a huge fraction of interview solutions. Sometimes it's the whole answer, and
+sometimes it's the setup that lets two pointers or a greedy sweep work. Python's sort is good; the
+skill is knowing how to sort by *the right thing*. That's the `key` function. Let's build the
+techniques test-first.
 
 ## `sorted` vs `.sort`, and stability
 
@@ -34,7 +34,7 @@ def by_length(words):
 ```
 
 `key=len` calls `len` once per element (not per comparison), so it's efficient as well as
-readable. This "decorate–sort" approach is why you almost never need a raw comparator.
+readable. This "decorate, then sort" approach is why you almost never need a raw comparator.
 
 ## Multi-level sort with a tuple key
 
@@ -70,7 +70,7 @@ def by_score_desc_then_name(players):
     return sorted(players, key=lambda p: (-p[1], p[0]))
 ```
 
-(For non-numeric descending fields, sort in two stable passes, or reverse afterwards — but `-x`
+(For non-numeric descending fields, sort in two stable passes, or reverse afterwards. But `-x`
 covers most interview cases.)
 
 ## When a key isn't enough: `cmp_to_key`
@@ -88,8 +88,8 @@ def test_largest_number_all_zeros():
     assert largest_number([0, 0]) == "0"
 ```
 
-Why no key works: should `3` come before `30`? Compare `"3"+"30" = "330"` vs `"30"+"3" = "303"` —
-`330` wins, so `3` first. That decision is inherently pairwise. `functools.cmp_to_key` adapts an
+Why no key works: should `3` come before `30`? Compare `"3"+"30" = "330"` against `"30"+"3" = "303"`.
+`330` wins, so `3` goes first. That decision is inherently pairwise. `functools.cmp_to_key` adapts an
 old-style comparator (returns negative / 0 / positive) into a key:
 
 ```python
@@ -117,10 +117,10 @@ the largest arrangement starts with `0`, every digit is `0`, so the answer is ju
 
 ## Wrapping up
 
-- **Prefer `key=`** — it's called once per element and expresses intent directly.
+- **Prefer `key=`**: it's called once per element and expresses intent directly.
 - **Tuple keys** do multi-level sorting; **negate** a numeric field to reverse just that field.
-- Python's sort is **stable** — rely on it for "preserve original order among equals".
+- Python's sort is **stable**, so rely on it for "preserve original order among equals".
 - **`cmp_to_key`** is the escape hatch for genuinely *pairwise* ordering (Largest Number,
-  custom orderings) — reach for it only when no per-element key exists.
+  custom orderings). Reach for it only when no per-element key exists.
 
-Next, the main event: the [Interview patterns](two-pointers.md) — starting with Two Pointers.
+Next, the main event: the [Interview patterns](two-pointers.md), starting with Two Pointers.

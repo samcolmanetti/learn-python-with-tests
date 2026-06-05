@@ -1,6 +1,6 @@
 """Integer Square Root (binary search on the answer).
 
-Return ``floor(sqrt(n))`` without using ``math.sqrt`` — the canonical "binary search on the
+Return ``floor(sqrt(n))`` without using ``math.sqrt``, the canonical "binary search on the
 answer space" problem. We're not searching an array; we're searching the range of possible
 answers ``[0, n]`` for the largest ``x`` with ``x * x <= n``. ``feasible(x) = x*x <= n`` is
 True…True…False, and we want the last True.

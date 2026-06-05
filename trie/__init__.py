@@ -1,1 +1,1 @@
-"""trie pattern — see ../trie.md."""
+"""trie pattern, see ../trie.md."""

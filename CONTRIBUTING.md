@@ -1,15 +1,15 @@
 # Contributing
 
-Thanks for helping grow **Learn Python with Tests**. The whole book follows one rhythm — write
-a failing test, make it pass, refactor — and a few simple conventions keep it consistent.
+Thanks for helping grow **Learn Python with Tests**. The whole book follows one rhythm, write
+a failing test, make it pass, refactor, and a few simple conventions keep it consistent.
 
 ## Ground rules
 
 - **Test-first.** Every behaviour starts as a failing `pytest` test. The chapter prose walks
   the reader through the red → green → refactor loop.
 - **Standard library only in solutions.** Interview environments rarely let you `pip install`.
-  Solutions import only from the Python standard library. (Dev tooling — `pytest`, `hypothesis`,
-  `ruff` — is fine; it just never appears inside a solution.)
+  Solutions import only from the Python standard library. (Dev tooling, `pytest`, `hypothesis`,
+  `ruff`, is fine; it just never appears inside a solution.)
 - **Python 3.9+.** Keep code runnable on 3.9 and up. If you use modern annotation syntax like
   `list[int]` in annotations, add `from __future__ import annotations` at the top of the file.
 - **Everything stays green.** `pytest` and `ruff check` must pass before you commit.
@@ -23,11 +23,11 @@ iteration.md          ← the chapter prose
 iteration/            ← the chapter's code
 ```
 
-Add every chapter to [`SUMMARY.md`](SUMMARY.md) — it is the table of contents and the single
+Add every chapter to [`SUMMARY.md`](SUMMARY.md), it is the table of contents and the single
 source of truth for navigation. The `tests/test_summary_links.py` guard fails the build if a
 chapter is linked but missing, or exists but unlinked.
 
-### Layout 1 — Fundamentals chapters: versioned snapshots
+### Layout 1: Fundamentals chapters: versioned snapshots
 
 Language chapters grow the code one step at a time. Each step is a **complete, runnable
 snapshot** in its own `vN/` folder, so the reader can see the code evolve.
@@ -49,7 +49,7 @@ iteration/
 Every folder gets an `__init__.py` so the same module name (`iteration.py`) can live in many
 `vN/` folders without import collisions.
 
-### Layout 2 — Interview-pattern chapters: template + solutions
+### Layout 2: Interview-pattern chapters: template + solutions
 
 Pattern chapters share a reusable skeleton plus one file per worked problem.
 
@@ -65,7 +65,7 @@ two_pointers/
     └── test_two_sum_sorted.py
 ```
 
-- `_template.py` is the **pattern in the abstract** — a generic, importable, tested function
+- `_template.py` is the **pattern in the abstract**, a generic, importable, tested function
   you adapt per problem. (These were seeded from common interview templates and rewritten as
   working Python.)
 - Each problem in `solutions/` is one `problem_name.py` + `test_problem_name.py` pair.
@@ -74,7 +74,7 @@ two_pointers/
 
 - Test files: `test_*.py` (pytest discovery is configured for this in `pyproject.toml`).
 - Modules and folders: `snake_case`. Chapter markdown files: `kebab-case.md`.
-- Test functions: `test_<behaviour>` — name the behaviour, not the implementation
+- Test functions: `test_<behaviour>`, name the behaviour, not the implementation
   (`test_returns_zero_for_empty_input`, not `test_loop`).
 
 ## Running things

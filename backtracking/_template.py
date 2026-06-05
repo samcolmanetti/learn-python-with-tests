@@ -1,4 +1,4 @@
-"""Backtracking — combinatorial search via choose / explore / un-choose.
+"""Backtracking, combinatorial search via choose / explore / un-choose.
 
 Backtracking is DFS over a tree of partial solutions. At each step you iterate the available
 choices, *make* a choice (push it onto the path), recurse, then *undo* it (pop) so the next

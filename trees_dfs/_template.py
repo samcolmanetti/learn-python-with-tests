@@ -5,7 +5,7 @@ children. The two everyday shapes are:
 
 - **Search**: walk until you find a target, short-circuiting as soon as it is found.
 - **Aggregate up**: compute each child's answer, then combine them into this node's answer
-  (the "return info up the tree" pattern — e.g. height, sum, "is balanced").
+  (the "return info up the tree" pattern, e.g. height, sum, "is balanced").
 
 ``TreeNode`` is the minimal node used throughout the tree chapters.
 """

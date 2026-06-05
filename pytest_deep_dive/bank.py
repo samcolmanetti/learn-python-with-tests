@@ -1,4 +1,4 @@
-"""A tiny bank account — just enough behaviour to exercise pytest's core features."""
+"""A tiny bank account, just enough behaviour to exercise pytest's core features."""
 
 from __future__ import annotations
 

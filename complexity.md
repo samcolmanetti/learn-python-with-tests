@@ -2,7 +2,7 @@
 
 You can't reason about an interview solution without reasoning about its cost. Big-O is the
 language for that: how the running time (or memory) grows as the input grows. This is a
-reference chapter — no new code, just the model and the Python-specific numbers you need in your
+reference chapter. No new code, just the model and the Python-specific numbers you need in your
 head.
 
 ## Big-O in one paragraph
@@ -30,24 +30,24 @@ window, a hash map) to drop a factor of `n`.
 ## Time *and* space
 
 Every solution has both. A hash map that turns an O(n²) scan into O(n) time usually costs O(n)
-extra space — name that trade-off out loud in an interview; it shows you understand the cost.
+extra space. Name that trade-off out loud in an interview; it shows you understand the cost.
 "Can you do it in O(1) space?" is a common follow-up.
 
 ## Amortised analysis: why `append` is O(1)
 
 Python lists are dynamic arrays. Most `append`s are O(1), but occasionally the list is full and
-Python allocates a bigger backing array and copies everything — an O(n) step. Averaged over many
+Python allocates a bigger backing array and copies everything (an O(n) step). Averaged over many
 appends, the cost per append is still O(1): this is **amortised** O(1). The same logic explains
 why a sliding window that adds and removes each element once is O(n) overall, even though any
 single step might do a little extra work.
 
 ## Cost of common Python operations
 
-Keep these in your head — the wrong data structure is the most common hidden O(n):
+Keep these in your head, because the wrong data structure is the most common hidden O(n):
 
 | Operation | Cost | Note |
 |-----------|------|------|
-| `x in list` | **O(n)** | scans every element — a frequent accidental O(n²) inside a loop |
+| `x in list` | **O(n)** | scans every element, a frequent accidental O(n²) inside a loop |
 | `x in set` / `x in dict` | **O(1)** | hashing; prefer these for membership |
 | `list[i]` (index) | O(1) | |
 | `list.append(x)` | O(1) amortised | |
@@ -61,24 +61,24 @@ Keep these in your head — the wrong data structure is the most common hidden O
 | `min`/`max`/`sum` | O(n) | one pass |
 | `" ".join(parts)` | O(total length) | the right way to build strings |
 | string `+=` in a loop | **O(n²)** | strings are immutable; collect in a list and `join` |
-| slice `xs[a:b]` | O(b − a) | makes a copy |
+| slice `xs[a:b]` | O(length of the slice) | makes a copy |
 | `set(a) & set(b)` | O(len a + len b) | intersection |
 
-The two that bite most often in interviews: `x in list` inside a loop (silent O(n²) — switch to
+The two that bite most often in interviews: `x in list` inside a loop (silent O(n²), so switch to
 a `set`), and `list.pop(0)` / `insert(0, …)` for a queue (switch to `deque`).
 
 ## How to talk about it
 
-When you finish a solution, state its complexity unprompted: *"This is O(n) time and O(n) space —
-the dict is what buys us the single pass."* If asked to do better, the table above is your menu:
-can a set replace a scan? can sorting unlock two pointers? can a heap avoid a full sort?
+When you finish a solution, state its complexity unprompted: *"This is O(n) time and O(n) space,
+and the dict is what buys us the single pass."* If asked to do better, the table above is your menu:
+can a set replace a scan? can sorting get you two pointers? can a heap avoid a full sort?
 
 ## Wrapping up
 
 - Big-O is about **growth shape**; drop constants and lower-order terms.
 - Aim for **O(n) or O(n log n)** on inputs up to ~10⁵.
-- Always name **time and space** — patterns usually trade space for time.
+- Always name **time and space**; patterns usually trade space for time.
 - Know the **hidden O(n)s**: `in list`, `pop(0)`, `insert(0, …)`, and `+=` on strings.
 
-Next: the [Built-in data structures cheat sheet](builtins-cheatsheet.md) — the tools that make
+Next: the [Built-in data structures cheat sheet](builtins-cheatsheet.md), the tools that make
 the fast option the easy option.

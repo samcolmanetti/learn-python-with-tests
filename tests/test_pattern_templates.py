@@ -2,9 +2,9 @@
 
 Two layers:
 
-1. **Importability** — every ``_template.py`` must import cleanly (no syntax errors, no
+1. **Importability**, every ``_template.py`` must import cleanly (no syntax errors, no
    top-level side effects). This is the guardrail CONTRIBUTING.md promises.
-2. **Behaviour** — the templates are real, working Python, not pseudo-code, so we exercise
+2. **Behaviour**, the templates are real, working Python, not pseudo-code, so we exercise
    each one on a small example. If a template breaks, these fail loudly.
 """
 

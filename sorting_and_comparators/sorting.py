@@ -1,9 +1,9 @@
 """Sorting in Python: the ``key=`` function, tuple keys, and ``cmp_to_key``.
 
 Python's ``sorted`` (and ``list.sort``) is a stable Timsort. You almost never write a
-comparator — you give a ``key`` function that maps each element to something orderable. The one
+comparator, you give a ``key`` function that maps each element to something orderable. The one
 case where you fall back to a real comparator (via ``functools.cmp_to_key``) is when "which of
-two comes first" can't be expressed as an independent key — the ``largest_number`` problem
+two comes first" can't be expressed as an independent key, the ``largest_number`` problem
 below is the classic example.
 """
 
@@ -18,7 +18,7 @@ def by_length(words: list[str]) -> list[str]:
 
 
 def by_last_then_first(names: list[str]) -> list[str]:
-    """Sort ``"First Last"`` names by last name, then first — a **tuple key**.
+    """Sort ``"First Last"`` names by last name, then first, a **tuple key**.
 
     Returning a tuple from the key sorts by the first element, breaking ties on the second, and
     so on. This is how you do multi-level sorts without any comparator.
@@ -38,8 +38,8 @@ def by_score_desc_then_name(players: list[tuple[str, int]]) -> list[tuple[str, i
 def largest_number(nums: list[int]) -> str:
     """Arrange the numbers to form the largest possible concatenated number.
 
-    For ``[3, 30, 34, 5, 9]`` the answer is ``"9534330"``. The ordering rule — ``a`` should come
-    before ``b`` when ``a+b > b+a`` as strings — is *pairwise* and not a per-element key, so this
+    For ``[3, 30, 34, 5, 9]`` the answer is ``"9534330"``. The ordering rule, ``a`` should come
+    before ``b`` when ``a+b > b+a`` as strings, is *pairwise* and not a per-element key, so this
     is the textbook ``cmp_to_key`` case.
     """
     if not nums:

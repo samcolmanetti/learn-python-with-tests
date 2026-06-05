@@ -1,4 +1,4 @@
-"""Prefix Sum — precompute cumulative sums for O(1) range queries.
+"""Prefix Sum, precompute cumulative sums for O(1) range queries.
 
 Build a `prefix` array once in O(n); then the sum of any range ``[left, right]`` (inclusive)
 is a single subtraction. The same idea generalises to "count" and "XOR" prefixes and to 2D.

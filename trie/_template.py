@@ -1,8 +1,8 @@
-"""Trie (prefix tree) — store strings by shared prefix for fast prefix queries.
+"""Trie (prefix tree), store strings by shared prefix for fast prefix queries.
 
 Each node holds a map from the next character to a child node, plus a flag marking the end of
 a complete word. Insertion and lookup are O(len(word)) and independent of how many words are
-stored — which is why tries power autocomplete, spell-check, and word-search problems.
+stored, which is why tries power autocomplete, spell-check, and word-search problems.
 """
 
 from __future__ import annotations

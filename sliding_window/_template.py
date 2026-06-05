@@ -1,8 +1,8 @@
-"""Sliding Window — fixed, longest-flexible, and shortest-flexible templates.
+"""Sliding Window, fixed, longest-flexible, and shortest-flexible templates.
 
 A sliding window maintains a contiguous range ``[left, right]`` and slides it across the
 input, adding the entering element and removing the leaving one so each element is touched
-O(1) amortised times — an O(n) pass.
+O(1) amortised times, an O(n) pass.
 
 Three shapes cover almost everything:
 
@@ -12,7 +12,7 @@ Three shapes cover almost everything:
 - **Flexible shortest**: grow ``right``; while the window is *valid*, record it and shrink
   ``left`` to try to do better.
 
-These are directional skeletons — adapt the per-window bookkeeping per problem.
+These are directional skeletons, adapt the per-window bookkeeping per problem.
 """
 
 from __future__ import annotations

@@ -1,4 +1,4 @@
-"""Union Find (Disjoint Set Union) — near-O(1) "are these connected?" / "merge these".
+"""Union Find (Disjoint Set Union), near-O(1) "are these connected?" / "merge these".
 
 Maintain a forest where each element points to a parent; the root identifies the set. Two
 optimisations make operations effectively constant time:
@@ -38,7 +38,7 @@ class UnionFind:
         """Merge the sets containing ``a`` and ``b``.
 
         Returns ``True`` if they were previously separate (a real merge happened), ``False``
-        if they were already connected — handy for cycle detection.
+        if they were already connected, handy for cycle detection.
         """
         root_a, root_b = self.find(a), self.find(b)
         if root_a == root_b:

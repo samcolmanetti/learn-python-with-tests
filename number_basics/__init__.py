@@ -1,1 +1,1 @@
-"""Numbers — ints, division & arbitrary precision, test-first. See ../numbers.md."""
+"""Numbers, ints, division & arbitrary precision, test-first. See ../numbers.md."""

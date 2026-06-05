@@ -1,1 +1,1 @@
-"""Iteration — loops in Python, test-first. See ../iteration.md."""
+"""Iteration, loops in Python, test-first. See ../iteration.md."""

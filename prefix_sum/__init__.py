@@ -1,1 +1,1 @@
-"""prefix_sum pattern — see ../prefix-sum.md."""
+"""prefix_sum pattern, see ../prefix-sum.md."""

@@ -1,1 +1,1 @@
-"""topological_sort pattern — see ../topological-sort.md."""
+"""topological_sort pattern, see ../topological-sort.md."""

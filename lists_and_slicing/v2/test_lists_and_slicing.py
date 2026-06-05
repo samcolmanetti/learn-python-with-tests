@@ -18,5 +18,5 @@ def test_tail_drops_the_first_element():
 
 
 def test_tail_of_empty_list_is_empty():
-    # Slicing tolerates out-of-range bounds instead of raising — unlike indexing.
+    # Slicing tolerates out-of-range bounds instead of raising, unlike indexing.
     assert tail([]) == []

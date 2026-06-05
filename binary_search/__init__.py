@@ -1,1 +1,1 @@
-"""binary_search pattern — see ../binary-search.md."""
+"""binary_search pattern, see ../binary-search.md."""

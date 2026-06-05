@@ -7,7 +7,7 @@ from .bank import Account, InsufficientFunds
 
 @pytest.fixture
 def account():
-    """A fresh account opened with 100. Each test gets its own — no shared state."""
+    """A fresh account opened with 100. Each test gets its own, with no shared state."""
     return Account(balance=100)
 
 

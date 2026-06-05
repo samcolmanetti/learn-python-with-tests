@@ -1,4 +1,4 @@
-"""Graph traversal — BFS and DFS on adjacency lists, plus matrix-as-graph neighbours.
+"""Graph traversal, BFS and DFS on adjacency lists, plus matrix-as-graph neighbours.
 
 The only thing that separates graph traversal from tree traversal is **cycles**: a graph can
 revisit nodes, so you must track a ``visited`` set. With that one addition, BFS (queue) and

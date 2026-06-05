@@ -1,4 +1,4 @@
-"""Binary search — the *predicate* template.
+"""Binary search, the *predicate* template.
 
 The most reusable form of binary search is not "find a value in a sorted array". It is:
 
@@ -10,7 +10,7 @@ such that ...", sqrt, rotated array) can be expressed as "find the first index w
 feasibility test flips to True". Get comfortable writing `feasible(mid)` and the rest is
 boilerplate.
 
-This is a directional template — adapt `feasible` per problem.
+This is a directional template, adapt `feasible` per problem.
 """
 
 from __future__ import annotations

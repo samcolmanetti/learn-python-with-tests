@@ -1,7 +1,7 @@
-"""Monotonic Stack — find the next/previous greater (or smaller) element in O(n).
+"""Monotonic Stack, find the next/previous greater (or smaller) element in O(n).
 
 A monotonic stack keeps its elements in sorted order (here: strictly decreasing values).
-When a new element would break the order, we pop the smaller elements — and *that pop is the
+When a new element would break the order, we pop the smaller elements, and *that pop is the
 answer* to "what is the next greater element" for each popped item. Each index is pushed and
 popped at most once, so the whole scan is O(n).
 

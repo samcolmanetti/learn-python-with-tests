@@ -1,7 +1,7 @@
 """Maximum Sum Subarray of Size K (fixed-size sliding window).
 
 Maintain a window of exactly ``k`` elements. Slide it one step at a time, adding the entering
-element and subtracting the leaving one, so each step is O(1) and the whole scan is O(n) — far
+element and subtracting the leaving one, so each step is O(1) and the whole scan is O(n), far
 better than recomputing each window's sum.
 """
 

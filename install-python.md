@@ -1,7 +1,7 @@
 # Install Python & tooling
 
 A five-minute setup. You need Python, a test runner (`pytest`), a property-testing library
-(`hypothesis`), and — optionally — Node.js to render the book as a website.
+(`hypothesis`), and, if you want to render the book as a website, Node.js.
 
 ## Python
 
@@ -16,39 +16,34 @@ your package manager (`brew install python` on macOS, `apt install python3` on D
 
 ## The tools
 
-This project is set up to use [`uv`](https://docs.astral.sh/uv/), a fast Python package and
-environment manager. With `uv` installed (`brew install uv` or see the docs), one command sets
-everything up:
+This project uses [`uv`](https://docs.astral.sh/uv/), a fast Python package and environment
+manager. It's the only tool you need. With `uv` installed (`brew install uv`, or see the docs),
+one command sets everything up:
 
 ```bash
 uv sync          # creates a virtualenv and installs pytest, hypothesis, ruff
 uv run pytest    # run the whole test suite
 ```
 
-**Prefer plain `pip`?** A standard-library virtualenv works just as well:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install pytest hypothesis ruff
-pytest
-```
-
-You should see all tests pass. That's your green baseline — the book grows from here.
+You should see all tests pass. That's your green baseline, and the book grows from here.
 
 ## Running things
 
+Every command runs through `uv run`, so you never have to activate a virtualenv by hand:
+
 ```bash
-pytest                       # all tests
-pytest hello_pytest/         # just one chapter
-pytest -k palindrome         # tests matching a name
-pytest -m "not slow"         # skip tests marked slow
-ruff check                   # lint
+uv run pytest                       # all tests
+uv run pytest hello_pytest/         # just one chapter
+uv run pytest -k palindrome         # tests matching a name
+uv run pytest -m "not slow"         # skip tests marked slow
+uv run ruff check                   # lint
 ```
+
+Need another library later? `uv add <name>` installs it and records it in `pyproject.toml`.
 
 ## Render the book (optional)
 
-The chapters are plain markdown — readable straight on GitHub. To browse them as a website
+The chapters are plain markdown, readable straight on GitHub. To browse them as a website
 locally (the same [GitBook](https://www.gitbook.com) look this book is modelled on), install
 [Node.js](https://nodejs.org) and run:
 

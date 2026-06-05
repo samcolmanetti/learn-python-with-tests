@@ -8,7 +8,7 @@ Here are the ones to watch for.
 ### Testing implementation instead of behaviour
 
 A test should assert *what* a function does, not *how*. If your test checks that a helper was
-called or inspects a private variable, it breaks the moment you refactor — even when behaviour is
+called or inspects a private variable, it breaks the moment you refactor, even when behaviour is
 unchanged. Assert on inputs and outputs:
 
 ```python
@@ -23,13 +23,13 @@ assert solver.fib(5) == 5
 
 Mock external boundaries (network, clock, filesystem), not your own logic. A test where
 everything is mocked proves only that your mocks return what you told them to. In interview-style
-problems you almost never need mocks at all — the code is pure functions over data.
+problems you almost never need mocks at all: the code is pure functions over data.
 
 ### Assert-nothing tests
 
 A test that runs code but asserts nothing (or asserts something always-true) is worse than no
 test: it's a green light that means nothing. Every test must be able to *fail*. Watch it fail
-before you make it pass — the discipline this book keeps repeating.
+before you make it pass. That's the discipline this book keeps repeating.
 
 ### One giant test
 
@@ -66,7 +66,7 @@ progression is exactly what's being scored.
 
 ### Silent coding
 
-The answer matters less than your visible reasoning. Coding in silence — even correctly — gives
+The answer matters less than your visible reasoning. Coding in silence, even correctly, gives
 the interviewer nothing to evaluate. State the contract, name your edge cases, narrate the
 trade-offs. Tests are a natural way to externalise all of this.
 
@@ -78,7 +78,7 @@ while you can still think clearly, instead of discovering them when a hidden cas
 ## Wrapping up
 
 - Test **behaviour**, with assertions specific enough to fail for the right reason.
-- Mock boundaries, not your own logic — and rarely, in interview problems.
+- Mock boundaries, not your own logic, and rarely at that in interview problems.
 - Optimise prep for **patterns reproduced from blank files**, not problem count.
 - Make your reasoning **visible**: contract, edge cases, trade-offs, brute-force-then-optimise.
 
