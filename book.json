@@ -2,7 +2,7 @@
     "structure": {
         "readme": "gb-readme.md"
     },
-    "plugins": ["code"],
+    "plugins": ["code", "pagetoc"],
     "pluginsConfig": {
         "code": {
             "copyButtons": true

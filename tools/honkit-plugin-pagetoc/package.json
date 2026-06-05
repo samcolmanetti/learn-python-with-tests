@@ -1,0 +1,9 @@
+{
+  "name": "honkit-plugin-pagetoc",
+  "version": "1.0.0",
+  "description": "An 'On this page' right-sidebar TOC for the current chapter, with scroll-spy.",
+  "engines": {
+    "honkit": "*",
+    "gitbook": "*"
+  }
+}

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "gitbook-plugin-code": "^0.1.0",
-    "honkit": "^6.0.0"
+    "honkit": "^6.0.0",
+    "honkit-plugin-pagetoc": "file:tools/honkit-plugin-pagetoc"
   }
 }

@@ -1,0 +1,12 @@
+# Keep these out of the Honkit build output (_book). Chapter code folders are kept so
+# the code stays browsable and any relative code links resolve.
+tools
+node_modules
+references
+.venv
+.context
+.playwright-mcp
+docs
+Dockerfile
+.dockerignore
+netlify.toml
