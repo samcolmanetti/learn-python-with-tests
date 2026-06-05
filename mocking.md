@@ -41,9 +41,7 @@ The clock is just a `lambda` returning a fixed `datetime`. No mock needed there,
 `ReminderService` doesn't exist yet, so the import is the first thing to break. Run `uv run pytest`:
 
 ```
-_capmock/test_reminders.py:4: in <module>
-    from .reminders import ReminderService
-E   ImportError: cannot import name 'ReminderService' from 'mocking.reminders'
+ImportError: cannot import name 'ReminderService' from 'mocking.reminders'
 ```
 
 Nothing to import. The error is telling us where to start: there's no class yet.
@@ -225,9 +223,7 @@ The second test uses `monkeypatch.delenv(..., raising=False)` to guarantee the v
 `default_channel` doesn't exist, so the import fails:
 
 ```
-_capmock/test_reminders.py:1: in <module>
-    from .reminders import default_channel
-E   ImportError: cannot import name 'default_channel' from 'mocking.reminders'
+ImportError: cannot import name 'default_channel' from 'mocking.reminders'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -301,9 +297,7 @@ That `return_value="ops"` makes the patched `default_channel` return `"ops"` whe
 `describe_channel` isn't defined yet:
 
 ```
-_capmock/test_reminders.py:3: in <module>
-    from .reminders import describe_channel
-E   ImportError: cannot import name 'describe_channel' from 'mocking.reminders'
+ImportError: cannot import name 'describe_channel' from 'mocking.reminders'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

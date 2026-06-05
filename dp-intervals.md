@@ -117,9 +117,7 @@ row and column we just talked about.
 The module doesn't define the function yet, so the import is the first thing to break:
 
 ```
-solutions/test_longest_common_subsequence.py:1: in <module>
-    from .longest_common_subsequence import longest_common_subsequence
-E   ModuleNotFoundError: No module named 'dp_intervals.solutions.longest_common_subsequence'
+ModuleNotFoundError: No module named 'dp_intervals.solutions.longest_common_subsequence'
 ```
 
 No module, no function. The error is telling us where to start.
@@ -248,8 +246,7 @@ problem needs more setup than LCS did.
 Same story as before, the import fails first:
 
 ```
-    from .edit_distance import edit_distance
-E   ModuleNotFoundError: No module named 'dp_intervals.solutions.edit_distance'
+ModuleNotFoundError: No module named 'dp_intervals.solutions.edit_distance'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -375,8 +372,7 @@ answer is 0.
 The import fails first, as it always does:
 
 ```
-    from .longest_palindromic_subsequence import longest_palindromic_subsequence
-E   ModuleNotFoundError: No module named 'dp_intervals.solutions.longest_palindromic_subsequence'
+ModuleNotFoundError: No module named 'dp_intervals.solutions.longest_palindromic_subsequence'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

@@ -112,7 +112,7 @@ We've imported `is_valid_bst` from a module that doesn't define it, so the impor
 test runs:
 
 ```
-E   ImportError: cannot import name 'is_valid_bst' from 'bst.solutions.validate_bst'
+ImportError: cannot import name 'is_valid_bst' from 'bst.solutions.validate_bst'
 ```
 
 Listen to the error. It's telling us the function has to exist before anything else can happen.
@@ -246,7 +246,7 @@ children, so we check the subtree comes back intact rather than just the value.
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'search_bst' from 'bst.solutions.search_bst'
+ImportError: cannot import name 'search_bst' from 'bst.solutions.search_bst'
 ```
 
 Same story as before. The function has to exist first.
@@ -372,7 +372,7 @@ becomes a test oracle for this one.
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'insert_into_bst' from 'bst.solutions.insert_into_bst'
+ImportError: cannot import name 'insert_into_bst' from 'bst.solutions.insert_into_bst'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -494,7 +494,7 @@ def test_deep_pair():
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'lowest_common_ancestor' from 'bst.solutions.lowest_common_ancestor_bst'
+ImportError: cannot import name 'lowest_common_ancestor' from 'bst.solutions.lowest_common_ancestor_bst'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

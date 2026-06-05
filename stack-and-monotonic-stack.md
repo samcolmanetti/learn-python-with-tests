@@ -116,7 +116,7 @@ still open. Only a stack catches that.
 Nothing defines `is_valid` yet, so the import is the first thing to break:
 
 ```
-E   ModuleNotFoundError: No module named 'stack_and_monotonic_stack.solutions.valid_parentheses'
+ModuleNotFoundError: No module named 'stack_and_monotonic_stack.solutions.valid_parentheses'
 ```
 
 The error is telling us where to start: there's no module to import from.
@@ -230,7 +230,7 @@ where you meant `<`) and this test fails while the others might not.
 No module yet, so the import fails first:
 
 ```
-E   ModuleNotFoundError: No module named 'stack_and_monotonic_stack.solutions.daily_temperatures'
+ModuleNotFoundError: No module named 'stack_and_monotonic_stack.solutions.daily_temperatures'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -347,7 +347,7 @@ all be `-1`.
 No module yet:
 
 ```
-E   ModuleNotFoundError: No module named 'stack_and_monotonic_stack.solutions.next_greater_element_ii'
+ModuleNotFoundError: No module named 'stack_and_monotonic_stack.solutions.next_greater_element_ii'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

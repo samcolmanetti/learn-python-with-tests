@@ -1,0 +1,29 @@
+/* Richer code sections: per-line hover highlight, matching the gitbook.com reader feel.
+   The `code` plugin wraps every line in a `.code-line` span; we make each span fill the
+   line so the hover band covers the full width, then tint it on hover. */
+
+.book .page-inner pre code .code-line {
+  display: inline-block;
+  width: 100%;
+  margin: 0 -16px;
+  padding: 0 16px;
+  border-left: 2px solid transparent;
+  transition: background-color 0.08s ease;
+}
+
+.book .page-inner pre code .code-line:hover {
+  background-color: rgba(20, 110, 180, 0.10);
+  border-left-color: rgba(20, 110, 180, 0.55);
+}
+
+/* Keep the copy button comfortably clear of the code and only show it on hover. */
+.book .page-inner .code-wrapper {
+  position: relative;
+}
+.book .page-inner .code-wrapper .t-copy {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.book .page-inner .code-wrapper:hover .t-copy {
+  opacity: 0.85;
+}

@@ -131,9 +131,7 @@ wrongly land on `0`. Union find handles it because that third `union` is a no-op
 The module doesn't exist yet, so the import is the first thing to break:
 
 ```
-union_find/solutions/test_number_of_connected_components.py:1: in <module>
-    from .number_of_connected_components import count_components
-E   ModuleNotFoundError: No module named 'union_find.solutions.number_of_connected_components'
+ModuleNotFoundError: No module named 'union_find.solutions.number_of_connected_components'
 ```
 
 No module, no function. The error is telling us exactly what to create.
@@ -255,7 +253,7 @@ its endpoints already connected, we naturally land on the right one.
 Same opening as before. Nothing to import yet:
 
 ```
-E   ModuleNotFoundError: No module named 'union_find.solutions.redundant_connection'
+ModuleNotFoundError: No module named 'union_find.solutions.redundant_connection'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

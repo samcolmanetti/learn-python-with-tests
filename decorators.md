@@ -29,7 +29,7 @@ The `@log_calls` line is the decorator syntax. It's sugar for `add = log_calls(a
 We've imported `log_calls` from a module that doesn't define it yet, so the import is the first thing to break. Run `uv run pytest`:
 
 ```
-E   ImportError: cannot import name 'log_calls' from 'decorators.decorators'
+ImportError: cannot import name 'log_calls' from 'decorators.decorators'
 ```
 
 No function, nothing to import. The error is telling us where to start.
@@ -202,7 +202,7 @@ def test_memoize_caches_repeated_calls():
 `memoize` doesn't exist yet, so the import fails first. Run `uv run pytest`:
 
 ```
-E   ImportError: cannot import name 'memoize' from 'decorators.decorators'
+ImportError: cannot import name 'memoize' from 'decorators.decorators'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

@@ -155,7 +155,7 @@ We've imported `WordDictionary` from a module that doesn't define it, so the imp
 any test runs:
 
 ```
-E   ImportError: cannot import name 'WordDictionary' from 'trie.solutions.add_and_search_word'
+ImportError: cannot import name 'WordDictionary' from 'trie.solutions.add_and_search_word'
 ```
 
 The error points at the one thing missing. Let's give it a home.
@@ -311,7 +311,7 @@ this wrong.
 Nothing to import yet:
 
 ```
-E   ImportError: cannot import name 'replace_words' from 'trie.solutions.replace_words'
+ImportError: cannot import name 'replace_words' from 'trie.solutions.replace_words'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -445,7 +445,7 @@ length 5, so the smaller string wins.
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'longest_word' from 'trie.solutions.longest_word'
+ImportError: cannot import name 'longest_word' from 'trie.solutions.longest_word'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

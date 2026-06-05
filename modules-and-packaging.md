@@ -27,11 +27,7 @@ That import line is the interesting part. The leading dot means "relative to the
 Run `uv run pytest`. The import is the first thing to blow up, before any assertion runs:
 
 ```
-modules_packaging/test_geometry.py:3: in <module>
-    from . import shapes
-modules_packaging/shapes/__init__.py:4: in <module>
-    from .square import area as square_area
-E   ImportError: cannot import name 'area' from 'modules_packaging.shapes.square' (/Users/soar/src/python-with-tests/modules_packaging/shapes/square.py)
+ImportError: cannot import name 'area' from 'modules_packaging.shapes.square' (/Users/soar/src/python-with-tests/modules_packaging/shapes/square.py)
 ```
 
 (I've written the package skeleton in the steps below already, so the error you see has walked one layer deeper than a bare module would. The point stands: Python can find the package, but the name we asked for isn't there yet.)
@@ -141,9 +137,7 @@ def test_all_lists_the_public_names():
 Run `uv run pytest`. The package's `__init__.py` is about to try importing `circle_area`, and `circle.py` is still empty:
 
 ```
-modules_packaging/shapes/__init__.py:3: in <module>
-    from .circle import area as circle_area
-E   ImportError: cannot import name 'area' from 'modules_packaging.shapes.circle' (/Users/soar/src/python-with-tests/modules_packaging/shapes/circle.py)
+ImportError: cannot import name 'area' from 'modules_packaging.shapes.circle' (/Users/soar/src/python-with-tests/modules_packaging/shapes/circle.py)
 ```
 
 Same failure mode as before, one shape over. The whole test module fails to collect, because the broken import is at the top of the file and nothing past it can run.
@@ -238,9 +232,7 @@ def test_describe_unknown_shape_raises():
 Run `uv run pytest`. There's no `geometry.py` yet, so the import fails at the top of the test file:
 
 ```
-modules_packaging/test_geometry.py:4: in <module>
-    from .geometry import describe
-E   ImportError: cannot import name 'describe' from 'modules_packaging.geometry' (/Users/soar/src/python-with-tests/modules_packaging/geometry.py)
+ImportError: cannot import name 'describe' from 'modules_packaging.geometry' (/Users/soar/src/python-with-tests/modules_packaging/geometry.py)
 ```
 
 The module is missing entirely. Same lesson as the first cycle: the import is the canary.
@@ -338,8 +330,7 @@ Two squares of side 2 and 3 give 4 plus 9, which is 13. An empty list is zero, t
 Run `uv run pytest`. `total_area` isn't in `geometry.py` yet, so the import line that now asks for it fails:
 
 ```
-    from .geometry import describe, total_area
-E   ImportError: cannot import name 'total_area' from 'modules_packaging.geometry'
+ImportError: cannot import name 'total_area' from 'modules_packaging.geometry'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

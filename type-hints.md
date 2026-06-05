@@ -27,9 +27,7 @@ Nothing here mentions types yet. The test pins the behaviour. The hints are abou
 Run `uv run pytest`. We're importing `greet` from a module that doesn't define it, so the import is what breaks first:
 
 ```
-type_hints/test_annotations.py:1: in <module>
-    from .annotations import (
-E   ImportError: cannot import name 'greet' from 'type_hints.annotations'
+ImportError: cannot import name 'greet' from 'type_hints.annotations'
 ```
 
 No function, no anything. The error is pointing us at the first thing to write.
@@ -107,7 +105,7 @@ def test_total_empty():
 `total` doesn't exist yet, so the import fails again:
 
 ```
-E   ImportError: cannot import name 'total' from 'type_hints.annotations'
+ImportError: cannot import name 'total' from 'type_hints.annotations'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -175,7 +173,7 @@ The second test is the one that forces the issue. A function that can return `No
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'first_name' from 'type_hints.annotations'
+ImportError: cannot import name 'first_name' from 'type_hints.annotations'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -248,7 +246,7 @@ def test_word_counts_empty():
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'word_counts' from 'type_hints.annotations'
+ImportError: cannot import name 'word_counts' from 'type_hints.annotations'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

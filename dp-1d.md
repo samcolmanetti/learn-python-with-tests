@@ -101,7 +101,7 @@ We've imported `climb_stairs` from a module that doesn't define it yet, so the i
 breaks first:
 
 ```
-E   ImportError: cannot import name 'climb_stairs' from 'dp_1d.solutions.climbing_stairs'
+ImportError: cannot import name 'climb_stairs' from 'dp_1d.solutions.climbing_stairs'
 ```
 
 No function, nothing to call. The error is pointing us at the next move.
@@ -219,7 +219,7 @@ time gets this wrong, so we want it in the suite from the start.
 The function doesn't exist yet, so the import fails first:
 
 ```
-E   ImportError: cannot import name 'rob' from 'dp_1d.solutions.house_robber'
+ImportError: cannot import name 'rob' from 'dp_1d.solutions.house_robber'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -337,7 +337,7 @@ the `-1` path so we can't fake it with a sum.
 Nothing to import yet:
 
 ```
-E   ImportError: cannot import name 'coin_change' from 'dp_1d.solutions.coin_change'
+ImportError: cannot import name 'coin_change' from 'dp_1d.solutions.coin_change'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

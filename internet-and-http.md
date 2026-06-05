@@ -63,7 +63,7 @@ touches a network card. It hands `fetch_json` a canned response and checks that 
 `http_client.py` doesn't define `fetch_json` yet, so the import is the first thing to break:
 
 ```
-E   ImportError: cannot import name 'fetch_json' from 'internet_http.http_client'
+ImportError: cannot import name 'fetch_json' from 'internet_http.http_client'
 ```
 
 Nothing to import means nothing to test. The error is pointing us at the first thing to write.
@@ -207,7 +207,7 @@ proving `urllib` works, because that's not our code to test.
 `get_user_name` doesn't exist yet:
 
 ```
-E   ImportError: cannot import name 'get_user_name' from 'internet_http.http_client'
+ImportError: cannot import name 'get_user_name' from 'internet_http.http_client'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

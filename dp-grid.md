@@ -109,7 +109,7 @@ there's no destination at all.
 The module doesn't exist yet, so the import is the first thing to break:
 
 ```
-E   ModuleNotFoundError: No module named 'dp_grid.solutions.unique_paths'
+ModuleNotFoundError: No module named 'dp_grid.solutions.unique_paths'
 ```
 
 Listen to the error. It's telling us exactly which file to create.
@@ -223,7 +223,7 @@ line, so the answer is the total. They're the base cases in disguise.
 Nothing to import yet:
 
 ```
-E   ModuleNotFoundError: No module named 'dp_grid.solutions.min_path_sum'
+ModuleNotFoundError: No module named 'dp_grid.solutions.min_path_sum'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -349,7 +349,7 @@ between side and area is where a tired solution returns the wrong number, so the
 ### Try to run the test
 
 ```
-E   ModuleNotFoundError: No module named 'dp_grid.solutions.maximal_square'
+ModuleNotFoundError: No module named 'dp_grid.solutions.maximal_square'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

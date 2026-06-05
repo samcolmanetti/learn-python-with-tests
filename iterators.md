@@ -30,9 +30,7 @@ behaves like an iterator, this is the shortest way to pin down every value it pr
 There's no `Countdown` yet, so the import is the first thing to break. Run `uv run pytest`:
 
 ```
-iterators/test_iterators.py:1: in <module>
-    from .iterators import Countdown
-E   ImportError: cannot import name 'Countdown' from 'iterators.iterators'
+ImportError: cannot import name 'Countdown' from 'iterators.iterators'
 ```
 
 No class, nothing to import. The error is telling us exactly where to start.
@@ -169,9 +167,7 @@ from .iterators import Countdown, fibonacci
 `fibonacci` doesn't exist, so the import breaks again:
 
 ```
-iterators/test_iterators.py:1: in <module>
-    from .iterators import Countdown, fibonacci
-E   ImportError: cannot import name 'fibonacci' from 'iterators.iterators'
+ImportError: cannot import name 'fibonacci' from 'iterators.iterators'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -255,7 +251,7 @@ from .iterators import Countdown, fibonacci, fibonacci_forever, first_n_fibonacc
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'fibonacci_forever' from 'iterators.iterators'
+ImportError: cannot import name 'fibonacci_forever' from 'iterators.iterators'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

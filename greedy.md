@@ -97,7 +97,7 @@ where total gas exactly equals total cost.
 The function doesn't exist yet, so the import is the first thing to break:
 
 ```
-E   ImportError: cannot import name 'can_complete_circuit' from 'greedy.solutions.gas_station'
+ImportError: cannot import name 'can_complete_circuit' from 'greedy.solutions.gas_station'
 ```
 
 Listen to the error. It's telling us where to start.
@@ -221,7 +221,7 @@ otherwise each be a dead end.
 Same as before, no function yet:
 
 ```
-E   ImportError: cannot import name 'can_jump' from 'greedy.solutions.jump_game'
+ImportError: cannot import name 'can_jump' from 'greedy.solutions.jump_game'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -323,7 +323,7 @@ part, versus the whole string forced into one part because the first and last le
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'partition_labels' from 'greedy.solutions.partition_labels'
+ImportError: cannot import name 'partition_labels' from 'greedy.solutions.partition_labels'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

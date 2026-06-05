@@ -105,7 +105,7 @@ def test_empty():
 The module doesn't define `merge` yet, so the import is the first thing to break:
 
 ```
-E   ImportError: cannot import name 'merge' from 'intervals.solutions.merge_intervals'
+ImportError: cannot import name 'merge' from 'intervals.solutions.merge_intervals'
 ```
 
 No function, nothing to call. The error is pointing right at where we start.
@@ -225,7 +225,7 @@ A solution that only merges on one side gets that wrong.
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'insert' from 'intervals.solutions.insert_interval'
+ImportError: cannot import name 'insert' from 'intervals.solutions.insert_interval'
 ```
 
 Same starting point as before: the function doesn't exist.
@@ -346,7 +346,7 @@ assume.
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'can_attend_meetings' from 'intervals.solutions.can_attend_meetings'
+ImportError: cannot import name 'can_attend_meetings' from 'intervals.solutions.can_attend_meetings'
 ```
 
 The function isn't there yet.

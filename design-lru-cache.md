@@ -150,9 +150,7 @@ We import `LRUCache` from a module that doesn't exist yet, so the import is the 
 break:
 
 ```
-design_lru_cache/solutions/test_lru_cache.py:1: in <module>
-    from .lru_cache import LRUCache
-E   ModuleNotFoundError: No module named 'design_lru_cache.solutions.lru_cache'
+ModuleNotFoundError: No module named 'design_lru_cache.solutions.lru_cache'
 ```
 
 No module, no class, nothing. The error is telling us where to start.

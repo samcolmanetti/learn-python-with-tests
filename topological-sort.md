@@ -123,7 +123,7 @@ checks for the obvious two-node swap quietly passes the easy tests and fails the
 The module exists but the function doesn't yet, so the import is what breaks first:
 
 ```
-E   ImportError: cannot import name 'can_finish' from 'topological_sort.solutions.course_schedule'
+ImportError: cannot import name 'can_finish' from 'topological_sort.solutions.course_schedule'
 ```
 
 Listen to the error. It's pointing us at the one name we need to define.
@@ -267,7 +267,7 @@ or puts a prerequisite too late.
 Same story as before. The function isn't defined, so the import fails:
 
 ```
-E   ImportError: cannot import name 'find_order' from 'topological_sort.solutions.course_schedule_ii'
+ImportError: cannot import name 'find_order' from 'topological_sort.solutions.course_schedule_ii'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

@@ -34,9 +34,7 @@ We've imported a name that the module doesn't define yet, so the import is the f
 break. Run `uv run pytest`:
 
 ```
-comprehensions/test_comprehensions.py:1: in <module>
-    from .comprehensions import squares
-E   ImportError: cannot import name 'squares' from 'comprehensions.comprehensions'
+ImportError: cannot import name 'squares' from 'comprehensions.comprehensions'
 ```
 
 No function, no import. The error is telling us exactly where to start.
@@ -128,7 +126,7 @@ keeps it. A solution that leans on truthiness (`if n`) would silently drop the z
 `evens` doesn't exist yet, so the import fails again:
 
 ```
-E   ImportError: cannot import name 'evens' from 'comprehensions.comprehensions'
+ImportError: cannot import name 'evens' from 'comprehensions.comprehensions'
 ```
 
 ## Write the minimal amount of code for the test to run and check the failing test output
@@ -199,7 +197,7 @@ purpose instead of discovering it by accident later.
 ## Try to run the test
 
 ```
-E   ImportError: cannot import name 'char_index_map' from 'comprehensions.comprehensions'
+ImportError: cannot import name 'char_index_map' from 'comprehensions.comprehensions'
 ```
 
 ## Write the minimal amount of code for the test to run and check the failing test output
@@ -268,7 +266,7 @@ the answer is a single `{3}`. A list would give us `[3, 3, 3]`; a set throws the
 ## Try to run the test
 
 ```
-E   ImportError: cannot import name 'unique_lengths' from 'comprehensions.comprehensions'
+ImportError: cannot import name 'unique_lengths' from 'comprehensions.comprehensions'
 ```
 
 ## Write the minimal amount of code for the test to run and check the failing test output
@@ -347,7 +345,7 @@ returns if `running_total` produces values on demand and stops the moment we sto
 ## Try to run the test
 
 ```
-E   ImportError: cannot import name 'running_total' from 'comprehensions.comprehensions'
+ImportError: cannot import name 'running_total' from 'comprehensions.comprehensions'
 ```
 
 ## Write the minimal amount of code for the test to run and check the failing test output

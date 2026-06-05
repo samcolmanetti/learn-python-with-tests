@@ -28,9 +28,7 @@ We've also imported `pytest` because we're about to need `pytest.raises`, but le
 Run `uv run pytest`. The module has no `parse_age` yet, so the import is the first thing to break:
 
 ```
-exc/test_exceptions.py:2: in <module>
-    from .exceptions import parse_age
-E   ImportError: cannot import name 'parse_age' from 'exceptions.exceptions'
+ImportError: cannot import name 'parse_age' from 'exceptions.exceptions'
 ```
 
 No function, nothing to call. The error is telling us where to start.
@@ -176,7 +174,7 @@ attribute off it.
 Run `uv run pytest`. `ValidationError` doesn't exist yet, so the import fails before any test runs:
 
 ```
-E   ImportError: cannot import name 'ValidationError' from 'exceptions.exceptions'
+ImportError: cannot import name 'ValidationError' from 'exceptions.exceptions'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -366,7 +364,7 @@ because `finally` runs no matter what.
 Run `uv run pytest`. No `parse_record` yet:
 
 ```
-E   ImportError: cannot import name 'parse_record' from 'exceptions.exceptions'
+ImportError: cannot import name 'parse_record' from 'exceptions.exceptions'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

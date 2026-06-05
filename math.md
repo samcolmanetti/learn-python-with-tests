@@ -100,9 +100,7 @@ We've imported `count_primes` from a module that doesn't define it yet, so colle
 import before a single test runs:
 
 ```
-math_problems/solutions/test_count_primes.py:1: in <module>
-    from .count_primes import count_primes
-E   ImportError: cannot import name 'count_primes' from 'math_problems.solutions.count_primes'
+ImportError: cannot import name 'count_primes' from 'math_problems.solutions.count_primes'
 ```
 
 No function, no name to import. The error tells us exactly where to start.
@@ -216,9 +214,7 @@ gcd is about magnitude, so signs shouldn't change the answer.
 Same story as before. The module is empty, so the import is the first thing to fail:
 
 ```
-math_problems/solutions/test_gcd.py:1: in <module>
-    from .gcd import gcd
-E   ImportError: cannot import name 'gcd' from 'math_problems.solutions.gcd'
+ImportError: cannot import name 'gcd' from 'math_problems.solutions.gcd'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -329,9 +325,7 @@ large inputs. `test_exponent_zero` nails the base case (anything to the zero is 
 Nothing to import yet:
 
 ```
-math_problems/solutions/test_fast_pow.py:2: in <module>
-    from .fast_pow import fast_pow
-E   ImportError: cannot import name 'fast_pow' from 'math_problems.solutions.fast_pow'
+ImportError: cannot import name 'fast_pow' from 'math_problems.solutions.fast_pow'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

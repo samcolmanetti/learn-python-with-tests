@@ -41,9 +41,7 @@ slash your OS wants.
 Run `uv run pytest`. The functions don't exist yet, so the import is the first thing to break:
 
 ```
-file_handling/test_file_handling.py:2: in <module>
-    from .file_handling import write_lines, read_lines
-E   ImportError: cannot import name 'write_lines' from 'file_handling.file_handling'
+ImportError: cannot import name 'write_lines' from 'file_handling.file_handling'
 ```
 
 Listen to the error. It's telling us exactly which names it wants and where to put them.
@@ -162,11 +160,7 @@ lines: a counter that splits on a single space character would miscount this bad
 ## Try to run the test
 
 ```
-    def test_count_words_in_file(tmp_path):
-        target = tmp_path / "poem.txt"
-        write_lines(target, ["the quick brown fox", "jumps over", "the lazy dog"])
->       assert count_words_in_file(target) == 9
-E       ImportError: cannot import name 'count_words_in_file' from 'file_handling.file_handling'
+ImportError: cannot import name 'count_words_in_file' from 'file_handling.file_handling'
 ```
 
 No such function yet. Same start as before: the import points us at the work.
@@ -270,9 +264,7 @@ restoration only happened on the happy path, this test would fail.
 ## Try to run the test
 
 ```
-file_handling/test_file_handling.py:2: in <module>
-    from .file_handling import working_directory
-E   ImportError: cannot import name 'working_directory' from 'file_handling.file_handling'
+ImportError: cannot import name 'working_directory' from 'file_handling.file_handling'
 ```
 
 No `working_directory` yet.

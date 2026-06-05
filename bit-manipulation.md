@@ -107,7 +107,7 @@ across signs.
 The module doesn't define the function yet, so the import is what breaks first:
 
 ```
-E   ImportError: cannot import name 'single_number' from 'bit_manipulation.solutions.single_number'
+ImportError: cannot import name 'single_number' from 'bit_manipulation.solutions.single_number'
 ```
 
 Listen to the error. It's pointing us at the one name we owe it.
@@ -214,7 +214,7 @@ is the base case the loop has to terminate on.
 No function yet, so the import fails:
 
 ```
-E   ImportError: cannot import name 'hamming_weight' from 'bit_manipulation.solutions.number_of_1_bits'
+ImportError: cannot import name 'hamming_weight' from 'bit_manipulation.solutions.number_of_1_bits'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -320,7 +320,7 @@ directly. `test_length_matches_n_plus_one` guards the off-by-one in the list siz
 Nothing to import yet:
 
 ```
-E   ImportError: cannot import name 'count_bits' from 'bit_manipulation.solutions.counting_bits'
+ImportError: cannot import name 'count_bits' from 'bit_manipulation.solutions.counting_bits'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

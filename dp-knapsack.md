@@ -113,7 +113,7 @@ it's `True`.
 The module doesn't exist yet, so the import is the first thing to break:
 
 ```
-E   ModuleNotFoundError: No module named 'dp_knapsack.solutions.partition_equal_subset_sum'
+ModuleNotFoundError: No module named 'dp_knapsack.solutions.partition_equal_subset_sum'
 ```
 
 Listen to the error. It's telling us exactly which file to create.
@@ -251,7 +251,7 @@ orderings.
 Nothing to import yet:
 
 ```
-E   ModuleNotFoundError: No module named 'dp_knapsack.solutions.coin_change_ii'
+ModuleNotFoundError: No module named 'dp_knapsack.solutions.coin_change_ii'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -379,7 +379,7 @@ build any table.
 Nothing to import yet:
 
 ```
-E   ModuleNotFoundError: No module named 'dp_knapsack.solutions.target_sum'
+ModuleNotFoundError: No module named 'dp_knapsack.solutions.target_sum'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

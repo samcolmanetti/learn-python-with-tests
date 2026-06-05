@@ -116,9 +116,7 @@ checks we actually relax edges instead of just believing the first direct edge w
 The module is empty, so the import is the first thing to break:
 
 ```
-solutions/test_network_delay_time.py:1: in <module>
-    from .network_delay_time import network_delay_time
-E   ImportError: cannot import name 'network_delay_time' from 'network_delay_time'
+ImportError: cannot import name 'network_delay_time' from 'network_delay_time'
 ```
 
 No function, nothing to call. The error tells us where to start.
@@ -253,9 +251,7 @@ gets `5` here, it's genuinely searching the grid and not quietly assuming you on
 Empty module again, so the import fails first:
 
 ```
-solutions/test_min_cost_grid.py:1: in <module>
-    from .min_cost_grid import min_cost_grid
-E   ImportError: cannot import name 'min_cost_grid' from 'min_cost_grid'
+ImportError: cannot import name 'min_cost_grid' from 'min_cost_grid'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

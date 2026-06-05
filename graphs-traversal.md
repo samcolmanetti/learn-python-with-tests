@@ -150,9 +150,7 @@ solution that allowed diagonals would return `1` here and we'd catch it.
 The module doesn't define `num_islands` yet, so the test file can't even be imported:
 
 ```
-gttest/solutions/test_number_of_islands.py:1: in <module>
-    from .number_of_islands import num_islands
-E   ModuleNotFoundError: No module named 'graphs_traversal.solutions.number_of_islands'
+ModuleNotFoundError: No module named 'graphs_traversal.solutions.number_of_islands'
 ```
 
 Listen to the error: it's telling us the very first thing to create is a module with that name and
@@ -308,9 +306,7 @@ changes to stop it. That test is there to make us handle it.
 No module yet:
 
 ```
-gttest/solutions/test_flood_fill.py:1: in <module>
-    from .flood_fill import flood_fill
-E   ModuleNotFoundError: No module named 'graphs_traversal.solutions.flood_fill'
+ModuleNotFoundError: No module named 'graphs_traversal.solutions.flood_fill'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -448,9 +444,7 @@ orthogonal-only rule, so a max-area solution can't quietly start counting diagon
 No module yet:
 
 ```
-gttest/solutions/test_max_area_of_island.py:1: in <module>
-    from .max_area_of_island import max_area_of_island
-E   ModuleNotFoundError: No module named 'graphs_traversal.solutions.max_area_of_island'
+ModuleNotFoundError: No module named 'graphs_traversal.solutions.max_area_of_island'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

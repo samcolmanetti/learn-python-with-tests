@@ -133,7 +133,7 @@ sums to zero, so the one and only answer is `[[]]`.
 The module doesn't exist yet, so the import is the first thing to break:
 
 ```
-E   ImportError: cannot import name 'combination_sum' from 'backtracking.solutions.combination_sum'
+ImportError: cannot import name 'combination_sum' from 'backtracking.solutions.combination_sum'
 ```
 
 Listen to the error. It's telling us exactly which name to define and where.
@@ -260,7 +260,7 @@ cheap sanity net: the valid strings for `n` pairs are counted by the Catalan num
 Nothing to import yet:
 
 ```
-E   ImportError: cannot import name 'generate_parentheses' from 'backtracking.solutions.generate_parentheses'
+ImportError: cannot import name 'generate_parentheses' from 'backtracking.solutions.generate_parentheses'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -381,7 +381,7 @@ and `9` carry four.
 ### Try to run the test
 
 ```
-E   ImportError: cannot import name 'letter_combinations' from 'backtracking.solutions.letter_combinations'
+ImportError: cannot import name 'letter_combinations' from 'backtracking.solutions.letter_combinations'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

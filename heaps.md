@@ -99,7 +99,7 @@ We've imported `find_kth_largest` from a module that doesn't define it yet, so t
 first thing to break:
 
 ```
-E   ImportError: cannot import name 'find_kth_largest' from 'heaps.solutions.kth_largest_element'
+ImportError: cannot import name 'find_kth_largest' from 'heaps.solutions.kth_largest_element'
 ```
 
 No function, nothing to call. The error is telling us where to start.
@@ -207,7 +207,7 @@ order arbitrary, so that test sorts before comparing.
 The function doesn't exist yet, so the import is what fails first:
 
 ```
-E   ImportError: cannot import name 'top_k_frequent' from 'heaps.solutions.top_k_frequent'
+ImportError: cannot import name 'top_k_frequent' from 'heaps.solutions.top_k_frequent'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -333,7 +333,7 @@ distance from the origin and both have to come back.
 Nothing to import yet:
 
 ```
-E   ImportError: cannot import name 'k_closest' from 'heaps.solutions.k_closest_points_to_origin'
+ImportError: cannot import name 'k_closest' from 'heaps.solutions.k_closest_points_to_origin'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

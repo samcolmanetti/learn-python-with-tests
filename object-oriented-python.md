@@ -38,9 +38,7 @@ deliberate, and we'll see why in a moment.
 There's no `oop/shapes.py` yet, so `uv run pytest` can't even import the names:
 
 ```
-oop/test_shapes.py:5: in <module>
-    from .shapes import Circle, Rectangle, Shape, total_area
-E   ImportError: cannot import name 'Circle' from 'oop.shapes'
+ImportError: cannot import name 'Circle' from 'oop.shapes'
 ```
 
 The import is the first thing to break. Listen to it: it's telling us exactly which names to
@@ -204,8 +202,7 @@ from .shapes import Circle, Rectangle, Shape, total_area
 ### Try to run the test
 
 ```
-    from .shapes import Circle, Rectangle, Shape, total_area
-E   ImportError: cannot import name 'total_area' from 'oop.shapes'
+ImportError: cannot import name 'total_area' from 'oop.shapes'
 ```
 
 No `total_area` yet, so the import breaks again.

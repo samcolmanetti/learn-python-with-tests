@@ -25,9 +25,7 @@ We want `parallel_map` to square every number, possibly on different threads, an
 There's no `parallel_map` yet, so the import is the first thing to break. Run `uv run pytest`:
 
 ```
-concurrency/test_concurrency.py:1: in <module>
-    from .concurrency import parallel_map
-E   ImportError: cannot import name 'parallel_map' from 'concurrency.concurrency'
+ImportError: cannot import name 'parallel_map' from 'concurrency.concurrency'
 ```
 
 Nothing to import. The error points at where to start.
@@ -116,9 +114,7 @@ def test_fetch_all():
 `fetch_all` doesn't exist, so the import breaks again:
 
 ```
-concurrency/test_concurrency.py:3: in <module>
-    from .concurrency import fetch_all
-E   ImportError: cannot import name 'fetch_all' from 'concurrency.concurrency'
+ImportError: cannot import name 'fetch_all' from 'concurrency.concurrency'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

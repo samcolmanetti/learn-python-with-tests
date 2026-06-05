@@ -30,7 +30,7 @@ We've imported `fizzbuzz` from a module that doesn't define it yet, so the impor
 thing to break. Run `uv run pytest`:
 
 ```
-E   ImportError: cannot import name 'fizzbuzz' from 'control_flow.control_flow'
+ImportError: cannot import name 'fizzbuzz' from 'control_flow.control_flow'
 ```
 
 Listen to the error: there's no function, so that's where we start.
@@ -238,7 +238,7 @@ from .control_flow import fizzbuzz, grade_classifier
 `grade_classifier` doesn't exist yet, so the import breaks first. Run `uv run pytest`:
 
 ```
-E   ImportError: cannot import name 'grade_classifier' from 'control_flow.control_flow'
+ImportError: cannot import name 'grade_classifier' from 'control_flow.control_flow'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output
@@ -398,7 +398,7 @@ from .control_flow import first_passing, fizzbuzz, grade_classifier
 The function doesn't exist yet:
 
 ```
-E   ImportError: cannot import name 'first_passing' from 'control_flow.control_flow'
+ImportError: cannot import name 'first_passing' from 'control_flow.control_flow'
 ```
 
 ### Write the minimal amount of code for the test to run and check the failing test output

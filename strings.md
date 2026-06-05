@@ -25,9 +25,7 @@ One assertion, one clear behaviour. We import from a `strings` module that doesn
 Run `uv run pytest`:
 
 ```
-strtest/test_strings.py:1: in <module>
-    from .strings import reverse_words
-E   ImportError: cannot import name 'reverse_words' from 'strings.strings'
+ImportError: cannot import name 'reverse_words' from 'strings.strings'
 ```
 
 No function, no import. The error is telling us exactly where to start: define the name.
@@ -119,9 +117,7 @@ I'm asserting `is True` rather than just truthiness, because I want to know the 
 ### Try to run the test
 
 ```
-strtest/test_strings.py:1: in <module>
-    from .strings import is_anagram
-E   ImportError: cannot import name 'is_anagram' from 'strings.strings'
+ImportError: cannot import name 'is_anagram' from 'strings.strings'
 ```
 
 Same shape as before. The name doesn't exist yet.
@@ -207,9 +203,7 @@ def test_normalize_whitespace_collapses_runs():
 ### Try to run the test
 
 ```
-strtest/test_strings.py:1: in <module>
-    from .strings import normalize_whitespace
-E   ImportError: cannot import name 'normalize_whitespace' from 'strings.strings'
+ImportError: cannot import name 'normalize_whitespace' from 'strings.strings'
 ```
 
 You know this dance by now. Define the name.
