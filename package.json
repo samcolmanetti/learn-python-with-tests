@@ -5,7 +5,11 @@
   "description": "GitBook build tooling for Learn Python with Tests.",
   "scripts": {
     "serve": "honkit serve",
-    "build": "honkit build"
+    "build": "honkit build . _book",
+    "start": "serve _book --listen 3000 --no-clipboard"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "gitbook-plugin-code": "^0.1.0",
