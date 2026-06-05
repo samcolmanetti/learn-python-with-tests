@@ -9,4 +9,5 @@ references
 docs
 Dockerfile
 .dockerignore
+docker
 netlify.toml

@@ -19,5 +19,7 @@ RUN npx honkit build . _book
 # ---- serve stage ----
 FROM nginx:alpine
 COPY --from=build /app/_book /usr/share/nginx/html
-EXPOSE 80
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+# Serve on 3000 to match Dokploy's default container port.
+EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
