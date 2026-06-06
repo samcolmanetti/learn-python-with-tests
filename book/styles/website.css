@@ -78,17 +78,34 @@
      tablet/mobile. */
   display: flex;
   align-items: center;
-  margin: 0;
+  order: 1;
+  margin: 0 auto 0 0; /* margin-right:auto pushes the toolbar + search to the right */
   padding: 0;
   flex: 0 1 auto;
   font-size: 16px;
   font-weight: 600;
   line-height: var(--topbar-h);
   text-align: left;
-  opacity: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Avoid the title flashing the raw page title (e.g. "Numbers") before topbar.js
+   swaps it for the book title and relocates search. The header content stays
+   hidden until topbar.js applies and adds `.topbar-ready` (it does this on first
+   load and on every client-side page change). */
+.book .book-header h1,
+.book .book-header #book-search-input {
+  opacity: 0;
+  /* The theme sets `transition: opacity .2s` on the header title; without this
+     override the title would fade in on every client-side navigation, which
+     reads as a flash/re-render. Reveal it instantly instead. */
+  transition: none;
+}
+.book .book-header.topbar-ready h1,
+.book .book-header.topbar-ready #book-search-input {
+  opacity: 1;
 }
 
 .book .book-header h1 a,
@@ -133,8 +150,11 @@
   background: #146eb4;
 }
 
-/* Any theme toolbar buttons (e.g. the font-settings "Aa") sit inline, centered. */
-.book .book-header .btn {
+/* Theme toolbar items sit inline and vertically centred. The sidebar toggle
+   stays on the far left; the font-settings "A" moves to the right next to the
+   search box (flex order, so it's independent of when the plugins inject). */
+.book .book-header .btn,
+.book .book-header .font-settings {
   display: inline-flex;
   align-items: center;
   height: var(--topbar-h);
@@ -142,9 +162,17 @@
   color: #98a3ab;
 }
 
+.book .book-header .js-toolbar-action {
+  order: 0; /* sidebar toggle: far left */
+}
+.book .book-header .font-settings {
+  order: 2; /* overrides the order:0 above for the "A" -> right side */
+}
+
 /* Search box, relocated into the bar's right slot by topbar.js. */
 .book .book-header #book-search-input {
-  margin: 0 0 0 auto; /* reset the theme's margin-top/bottom so it centres in the bar */
+  order: 3;
+  margin: 0; /* reset the theme's margin-top/bottom so it centres in the bar */
   flex: 0 1 320px;
   padding: 0;
   border: 0;
@@ -203,6 +231,17 @@
 @media (min-width: 1300px) {
   .book .book-body .page-wrapper {
     padding-right: 248px;
+  }
+
+  /* The theme's full-height "next page" strip sits at the right edge, under the
+     fixed TOC (which made it unclickable). Tuck it into the gutter just left of
+     the TOC as a compact chevron, above the TOC in the stack. The "prev" strip
+     on the left is untouched. */
+  .book .navigation.navigation-next {
+    right: 244px;
+    min-width: 48px;
+    max-width: 48px;
+    z-index: 6;
   }
 }
 

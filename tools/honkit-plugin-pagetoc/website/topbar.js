@@ -52,8 +52,12 @@
   }
 
   if (window.gitbook && window.gitbook.events) {
-    // Fires on first load and on every client-side page change.
+    // Fires on first load and on every client-side page change. Run immediately
+    // so the (CSS-hidden) header reveals with the right content in the same frame
+    // and never flashes the raw page title; the delayed pass is a safety net in
+    // case another plugin hasn't injected the search node yet.
     window.gitbook.events.bind("page.change", function () {
+      build();
       setTimeout(build, 50);
     });
   } else {
