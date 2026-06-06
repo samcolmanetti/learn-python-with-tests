@@ -1,8 +1,8 @@
-// Local Honkit plugin: inject the "On this page" sidebar assets into every website page.
+// Local Honkit plugin: inject the "On this page" sidebar and a "home" link into every website page.
 module.exports = {
   website: {
     assets: "./website",
-    js: ["pagetoc.js"],
-    css: ["pagetoc.css"],
+    js: ["pagetoc.js", "homelink.js"],
+    css: ["pagetoc.css", "homelink.css"],
   },
 };

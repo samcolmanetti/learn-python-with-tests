@@ -4,8 +4,8 @@
   "private": true,
   "description": "GitBook build tooling for Learn Python with Tests.",
   "scripts": {
-    "serve": "honkit serve",
-    "build": "honkit build . _book",
+    "serve": "honkit serve book",
+    "build": "honkit build book ../_book",
     "start": "serve _book --listen 3000 --no-clipboard"
   },
   "dependencies": {

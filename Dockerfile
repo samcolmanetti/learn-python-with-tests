@@ -14,7 +14,7 @@ RUN npm install
 
 # Build the site. Honkit reads SUMMARY.md / book.json and writes static HTML to _book.
 COPY . .
-RUN npx honkit build . _book
+RUN npx honkit build book ../_book
 
 # ---- serve stage ----
 FROM nginx:alpine

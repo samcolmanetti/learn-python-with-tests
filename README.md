@@ -3,7 +3,7 @@
 <p align="center"><em>Learn Python for coding interviews, one failing test at a time.</em></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/tests-740%20passing-brightgreen" alt="tests">
+  <img src="https://img.shields.io/badge/tests-716%20passing-brightgreen" alt="tests">
   <img src="https://img.shields.io/badge/chapters-50%2B-1f6feb" alt="chapters">
   <img src="https://img.shields.io/badge/interview%20patterns-25-8957e5" alt="patterns">
   <img src="https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white" alt="python">
@@ -40,118 +40,114 @@ passes in CI. Nothing here is pseudo-code.
 |---|---|
 | **25** interview-pattern chapters | Two Pointers through Dynamic Programming, Tries, and LRU cache design |
 | **~50** chapters total | fundamentals, applied Python, testing, complexity, and the patterns |
-| **740** passing tests | every worked example is verified; `ruff` clean; runs in CI |
+| **716** passing tests | every worked example is verified; `ruff` clean; runs in CI |
 | **25** reusable templates | one `_template.py` per pattern, the skeleton you adapt |
 | **0** third-party deps in solutions | standard library only, like a real interview |
 | **Python 3.9+** | runs on the version most interview platforms use |
 
-## Quickstart
+## Getting started
 
-Requires Python 3.9+ and [`uv`](https://docs.astral.sh/uv/). Node.js is optional, for the website.
+**Read it online at [learnpython.scol.xyz](https://learnpython.scol.xyz).** You don't clone
+anything to follow the book, you write your own code in your own folder as you go.
 
-```bash
-git clone https://github.com/samcolmanetti/learn-python-with-tests
-cd learn-python-with-tests
+New here? Start with [Install Python & tooling](book/install-python.md), then
+[Hello, pytest](book/hello-pytest.md). All you need is Python 3.9+ and
+[`uv`](https://docs.astral.sh/uv/); the install chapter sets up your practice project in two
+commands.
 
-uv sync            # install pytest, hypothesis, ruff
-uv run pytest      # run every chapter's test suite
-uv run ruff check  # lint
-
-npx honkit serve   # read it as a website at http://localhost:4000
-```
-
-New here? Start with [How to study with this book](how-to-study.md), then
-[Hello, pytest](hello-pytest.md).
+Want to contribute a chapter or fix something? That's the one case where you clone the repo, see
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## The roadmap
 
 ### Getting started
 
-1. [Install Python & tooling](install-python.md) · uv, pytest, and a green baseline.
-2. [Why TDD for interviews](why-tdd-for-interviews.md) · the case for test-first under pressure.
-3. [How to study with this book](how-to-study.md) · the blank-file rule and spaced repetition.
+1. [Install Python & tooling](book/install-python.md) · uv, pytest, and a green baseline.
+2. [Why TDD for interviews](book/why-tdd-for-interviews.md) · the case for test-first under pressure.
+3. [How to study with this book](book/how-to-study.md) · the blank-file rule and spaced repetition.
 
 ### Python fundamentals
 
-[Hello, pytest](hello-pytest.md) ·
-[Numbers](numbers.md) ·
-[Control flow](control-flow.md) ·
-[Iteration](iteration.md) ·
-[Lists & slicing](lists-and-slicing.md) ·
-[Strings](strings.md) ·
-[Dicts & sets](dicts-and-sets.md) ·
-[Comprehensions & generators](comprehensions.md) ·
-[Classes & dataclasses](classes-and-dataclasses.md) ·
-[Object-oriented Python](object-oriented-python.md) ·
-[Exceptions & errors](exceptions.md) ·
-[Iterators & iterables](iterators.md) ·
-[Type hints](type-hints.md) ·
-[Decorators](decorators.md)
+[Hello, pytest](book/hello-pytest.md) ·
+[Numbers](book/numbers.md) ·
+[Control flow](book/control-flow.md) ·
+[Iteration](book/iteration.md) ·
+[Lists & slicing](book/lists-and-slicing.md) ·
+[Strings](book/strings.md) ·
+[Dicts & sets](book/dicts-and-sets.md) ·
+[Comprehensions & generators](book/comprehensions.md) ·
+[Classes & dataclasses](book/classes-and-dataclasses.md) ·
+[Object-oriented Python](book/object-oriented-python.md) ·
+[Exceptions & errors](book/exceptions.md) ·
+[Iterators & iterables](book/iterators.md) ·
+[Type hints](book/type-hints.md) ·
+[Decorators](book/decorators.md)
 
 ### Applied Python
 
-[File handling & context managers](file-handling.md) ·
-[Modules & packaging](modules-and-packaging.md) ·
-[Concurrency](concurrency.md) ·
-[Internet & HTTP calls](internet-and-http.md)
+[File handling & context managers](book/file-handling.md) ·
+[Modules & packaging](book/modules-and-packaging.md) ·
+[Concurrency](book/concurrency.md) ·
+[Internet & HTTP calls](book/internet-and-http.md)
 
 ### Testing fundamentals
 
-[pytest deep dive](pytest-deep-dive.md) ·
-[Mocking](mocking.md) ·
-[Property-based testing](property-based-testing.md) ·
-[Test organization](test-organization.md)
+[pytest deep dive](book/pytest-deep-dive.md) ·
+[Mocking](book/mocking.md) ·
+[Property-based testing](book/property-based-testing.md) ·
+[Test organization](book/test-organization.md)
 
 ### Complexity & Python's toolbox
 
-[Complexity & Big-O](complexity.md) ·
-[Built-in data structures cheat sheet](builtins-cheatsheet.md) ·
-[Sorting & custom comparators](sorting-and-comparators.md)
+[Complexity & Big-O](book/complexity.md) ·
+[Built-in data structures cheat sheet](book/builtins-cheatsheet.md) ·
+[Sorting & custom comparators](book/sorting-and-comparators.md)
 
 ### Interview patterns
 
-[Two Pointers](two-pointers.md) ·
-[Sliding Window](sliding-window.md) ·
-[Binary Search](binary-search.md) ·
-[Prefix Sum](prefix-sum.md) ·
-[Stack & Monotonic Stack](stack-and-monotonic-stack.md) ·
-[Linked Lists](linked-lists.md) ·
-[Intervals](intervals.md) ·
-[Trees: DFS](trees-dfs.md) ·
-[Trees: BFS](trees-bfs.md) ·
-[Binary Search Tree](bst.md) ·
-[Backtracking](backtracking.md) ·
-[Graphs: Traversal](graphs-traversal.md) ·
-[Topological Sort](topological-sort.md) ·
-[Union Find](union-find.md) ·
-[Dijkstra](dijkstra.md) ·
-[Heaps](heaps.md) ·
-[Greedy](greedy.md) ·
-[DP: 1D](dp-1d.md) ·
-[DP: Grid](dp-grid.md) ·
-[DP: Knapsack](dp-knapsack.md) ·
-[DP: Intervals](dp-intervals.md) ·
-[Trie](trie.md) ·
-[Bit Manipulation](bit-manipulation.md) ·
-[Math](math.md) ·
-[Design: LRU Cache](design-lru-cache.md)
+[Two Pointers](book/two-pointers.md) ·
+[Sliding Window](book/sliding-window.md) ·
+[Binary Search](book/binary-search.md) ·
+[Prefix Sum](book/prefix-sum.md) ·
+[Stack & Monotonic Stack](book/stack-and-monotonic-stack.md) ·
+[Linked Lists](book/linked-lists.md) ·
+[Intervals](book/intervals.md) ·
+[Trees: DFS](book/trees-dfs.md) ·
+[Trees: BFS](book/trees-bfs.md) ·
+[Binary Search Tree](book/bst.md) ·
+[Backtracking](book/backtracking.md) ·
+[Graphs: Traversal](book/graphs-traversal.md) ·
+[Topological Sort](book/topological-sort.md) ·
+[Union Find](book/union-find.md) ·
+[Dijkstra](book/dijkstra.md) ·
+[Heaps](book/heaps.md) ·
+[Greedy](book/greedy.md) ·
+[DP: 1D](book/dp-1d.md) ·
+[DP: Grid](book/dp-grid.md) ·
+[DP: Knapsack](book/dp-knapsack.md) ·
+[DP: Intervals](book/dp-intervals.md) ·
+[Trie](book/trie.md) ·
+[Bit Manipulation](book/bit-manipulation.md) ·
+[Math](book/math.md) ·
+[Design: LRU Cache](book/design-lru-cache.md)
 
 ### Meta
 
-[Anti-patterns](anti-patterns.md) ·
-[Speedrun strategy](speedrun-strategy.md) ·
+[Anti-patterns](book/anti-patterns.md) ·
+[Speedrun strategy](book/speedrun-strategy.md) ·
 [Contributing](CONTRIBUTING.md) ·
-[Chapter template](template.md)
+[Chapter template](book/template.md)
 
 ## How it's organised
 
-- Each chapter is a markdown file at the repo root (e.g. `iteration.md`) plus a sibling code
-  folder (e.g. `iteration/`).
-- **Fundamentals** chapters grow the code in versioned snapshots (`v1/`, `v2/`, ...), one per
-  step of the TDD evolution.
+- **`book/`** holds every chapter's prose (e.g. `book/iteration.md`), `SUMMARY.md`, and the site
+  config. **`code/`** holds every chapter's code (e.g. `code/iteration/`), which is what `pytest`
+  runs.
+- **Fundamentals** chapters are one flat pair of files (`code/iteration/iteration.py` +
+  `test_iteration.py`), the same shape you write while following along.
 - **Pattern** chapters ship a `_template.py` (the reusable skeleton) and a `solutions/` folder
   with one tested problem per file.
-- `SUMMARY.md` is the table of contents and the single source of truth for navigation.
+- `book/SUMMARY.md` is the table of contents and the single source of truth for navigation.
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the authoring conventions and the house style.
 

@@ -7,7 +7,7 @@ inline `code`, so CLI flags like `--fix` and dashes in code never trip a rule.
 
 Usage:
     python3 validate_article.py path/to/chapter.md [more.md ...]
-    python3 validate_article.py --all          # every root *.md chapter
+    python3 validate_article.py --all          # every book/*.md chapter
 
 Exit code 0 = clean, 1 = at least one ERROR. Warnings never fail the build.
 """
@@ -18,8 +18,8 @@ import re
 import sys
 from pathlib import Path
 
-# Files that are not chapters and should not be style-checked.
-NON_CHAPTERS = {"README.md", "SUMMARY.md", "CONTRIBUTING.md", "template.md"}
+# Files in book/ that are not chapters and should not be style-checked.
+NON_CHAPTERS = {"SUMMARY.md", "gb-readme.md", "template.md"}
 
 # AI-slop / marketing tells. Case-insensitive substring match in prose.
 # Keep this list opinionated: every entry is a phrase Chris James's book never uses.
@@ -146,7 +146,7 @@ def check(path: Path) -> tuple[list[str], list[str]]:
 def iter_targets(args: list[str]) -> list[Path]:
     if args == ["--all"]:
         root = Path(__file__).resolve().parents[4]  # repo root from .claude/skills/article-writer/scripts/
-        return sorted(p for p in root.glob("*.md") if p.name not in NON_CHAPTERS)
+        return sorted(p for p in (root / "book").glob("*.md") if p.name not in NON_CHAPTERS)
     return [Path(a) for a in args]
 
 

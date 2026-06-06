@@ -7,7 +7,7 @@
     },
     "build": {
       "inputs": [{ "step": "install" }],
-      "commands": ["npx honkit build . _book"]
+      "commands": ["npx honkit build book ../_book"]
     }
   },
   "deploy": {

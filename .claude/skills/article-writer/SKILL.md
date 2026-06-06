@@ -111,15 +111,22 @@ pattern's `_template.py`. See `two-pointers.md` and `sliding-window.md` for the 
 
 Follow `CONTRIBUTING.md`. In short:
 
+- Prose lives in `book/<chapter>.md`; code lives in `code/<chapter>/`. The code-link line points
+  at `https://github.com/USER/learn-python-with-tests/tree/main/code/<folder>`.
 - Standard library only in solution code. Python 3.9+; add `from __future__ import annotations`
   when using `list[int]` style hints.
-- Tests are `test_*.py` with **package-relative imports** (`from .module import fn`); every
-  folder has an `__init__.py`.
-- Pattern chapters: keep/extend the existing `_template.py`, add a `solutions/` subpackage with
-  one `problem.py` + `test_problem.py` per worked problem.
+- **Fundamentals chapters are flat:** `code/<chapter>/<chapter>.py` + `test_<chapter>.py`, no
+  `__init__.py`, no `vN/` folders, **absolute imports** (`from chapter import fn`). This is the
+  shape the reader mirrors, so the prose shows the same flat import.
+- **Pattern chapters stay packages:** keep/extend the existing `_template.py`, add a `solutions/`
+  subpackage with one `problem.py` + `test_problem.py` per worked problem, each `__init__.py`
+  present and using package-relative imports (`from .problem import fn`). The **prose still shows
+  flat imports** (`from problem import fn`), because the reader writes one problem flat.
+- The prose never tells the reader to clone the repo or create `vN/` folders, that's the reader
+  editing two files in place. Cloning is a contributor action (`CONTRIBUTING.md`).
 - Never name a code folder after a stdlib module (`math`, `string`, `queue`). Use `math_problems`.
-- Verify before declaring done: `uv run pytest <folder>/` is green and
-  `uv run ruff check <folder>` is clean.
+- Verify before declaring done: `uv run pytest code/<folder>/` is green and
+  `uv run ruff check code/<folder>` is clean.
 
 ## Validation rules (what the validator enforces)
 

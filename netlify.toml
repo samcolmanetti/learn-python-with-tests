@@ -3,7 +3,7 @@
 # picked up automatically.
 
 [build]
-  command = "npm install && npx honkit build . _book"
+  command = "npm install && npx honkit build book ../_book"
   publish = "_book"
 
 [build.environment]
