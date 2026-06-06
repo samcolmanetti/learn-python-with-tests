@@ -19,6 +19,15 @@
     var header = document.querySelector(".book-header");
     if (!header) return;
 
+    // Move the header out of `.book-body` to be a direct child of `.book`. The theme's narrow-screen
+    // drawer applies `transform: translate(...)` to `.book-body`, which makes it the containing block
+    // for our `position: fixed` header (dragging it down/right with the drawer). `.book` has no
+    // transform, so the header stays pinned to the viewport at every width. Idempotent.
+    var book = document.querySelector(".book");
+    if (book && header.parentNode !== book) {
+      book.insertBefore(header, book.firstChild);
+    }
+
     // Rebuild the title anchor as [dots logo][title text] so the whole thing is the home link, and
     // the title can be wrapped/collapsed independently of the logo on narrow screens. Idempotent:
     // skip if this header already has the mark.
