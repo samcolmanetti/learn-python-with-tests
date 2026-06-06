@@ -3,6 +3,24 @@
 (function () {
   "use strict";
 
+  // Keep in step with --topbar-h in book/styles/website.css.
+  var TOPBAR_H = 50;
+
+  // Honkit scrolls the content inside `.book-body` (an absolutely-positioned,
+  // overflow-y:auto container), not the window. Bind scroll-spy to whichever of
+  // these actually scrolls, falling back to the window for other layouts.
+  function pickScroller() {
+    var candidates = [
+      document.querySelector(".book-body"),
+      document.querySelector(".book-body .body-inner"),
+    ];
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      if (el && el.scrollHeight - el.clientHeight > 4) return el;
+    }
+    return window;
+  }
+
   function slugify(text) {
     return text
       .trim()
@@ -53,19 +71,36 @@
     nav.appendChild(ul);
     document.body.appendChild(nav);
 
+    var scroller = pickScroller();
+    // A heading counts as "current" once it has scrolled up to just below the bar.
+    var threshold = TOPBAR_H + 24;
+
+    function atBottom() {
+      if (scroller === window) {
+        return window.innerHeight + window.pageYOffset >= document.body.scrollHeight - 2;
+      }
+      return scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 2;
+    }
+
     function onScroll() {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       var active = items[0];
-      for (var i = 0; i < items.length; i++) {
-        var top = items[i].heading.getBoundingClientRect().top + scrollTop;
-        if (top - 100 <= scrollTop) active = items[i];
+      if (atBottom()) {
+        // Once we can't scroll further, pin the last entry so the bottom section reads as active.
+        active = items[items.length - 1];
+      } else {
+        // getBoundingClientRect().top is viewport-relative, so this works whatever the scroller is:
+        // the active heading is the last one whose top has crossed below the bar.
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].heading.getBoundingClientRect().top <= threshold) active = items[i];
+        }
       }
       items.forEach(function (it) {
         it.link.classList.toggle("active", it === active);
       });
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     onScroll();
   }
 

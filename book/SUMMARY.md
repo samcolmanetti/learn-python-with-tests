@@ -73,11 +73,6 @@
 * [Math](math.md)
 * [Design: LRU Cache](design-lru-cache.md)
 
-## Later (out of scope for now)
-
-* [System Design](system-design.md)
-* [Company OAs](company-oas.md)
-
 ## Meta
 
 * [Anti-patterns](anti-patterns.md)

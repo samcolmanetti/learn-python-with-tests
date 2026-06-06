@@ -27,3 +27,189 @@
 .book .page-inner .code-wrapper:hover .t-copy {
   opacity: 0.85;
 }
+
+/* ------------------------------------------------------------------------- *
+ * Sticky top bar
+ *
+ * Honkit's default theme keeps `.book-header` (50px) but renders its title at
+ * opacity:0 and hides it under 1000px, so the bar reads as empty. We turn it
+ * into a real, always-visible top bar: a TDD-dots logo + the title on the left
+ * (the title anchor is already a home link), and the relocated search box on
+ * the right. The header is fixed full-width above both panes; we push the
+ * summary and body down by its height so nothing hides underneath. This file
+ * loads after the theme stylesheet, so plain `.book .book-header` selectors win
+ * without `!important`. topbar.js injects the dots and moves the search node.
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --topbar-h: 50px;
+}
+
+.book .book-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--topbar-h);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16px;
+  overflow: visible;
+  color: #364149;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Drop the two scrolling panes below the fixed bar. */
+.book .book-summary,
+.book .book-body {
+  top: var(--topbar-h);
+}
+
+/* Title: left-aligned, always visible (override the theme's hover-only opacity,
+   centering, and the <1000px hide). */
+.book .book-header h1 {
+  /* `display` must be set here: the theme hides the title under 1000px
+     (@media .book-header h1{display:none}), and the dots logo lives inside the
+     title anchor, so without this the whole home affordance vanishes on
+     tablet/mobile. */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  flex: 0 1 auto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: var(--topbar-h);
+  text-align: left;
+  opacity: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book .book-header h1 a,
+.book .book-header h1 a:hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: #364149;
+  text-decoration: none;
+}
+
+.book .book-header .topbar-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* TDD-cycle dots logo (red -> green -> refactor blue). */
+.book .book-header .topbar-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+}
+
+.book .book-header .topbar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.book .book-header .topbar-dot-red {
+  background: #e5484d;
+}
+
+.book .book-header .topbar-dot-green {
+  background: #30a46c;
+}
+
+.book .book-header .topbar-dot-blue {
+  background: #146eb4;
+}
+
+/* Any theme toolbar buttons (e.g. the font-settings "Aa") sit inline, centered. */
+.book .book-header .btn {
+  display: inline-flex;
+  align-items: center;
+  height: var(--topbar-h);
+  padding: 0 6px;
+  color: #98a3ab;
+}
+
+/* Search box, relocated into the bar's right slot by topbar.js. */
+.book .book-header #book-search-input {
+  margin: 0 0 0 auto; /* reset the theme's margin-top/bottom so it centres in the bar */
+  flex: 0 1 320px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.book .book-header #book-search-input input {
+  width: 100%;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 6px;
+  background: #f6f8fa;
+  font-size: 13px;
+  line-height: 32px;
+  color: #364149;
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.book .book-header #book-search-input input:focus {
+  border-color: #146eb4;
+  background: #fff;
+}
+
+/* Narrow viewports: tighten spacing and let the search box shrink rather than
+   overflow. The summary still collapses off-canvas per the theme defaults. */
+@media (max-width: 600px) {
+  .book .book-header {
+    gap: 8px;
+    padding: 0 10px;
+  }
+  .book .book-header h1 {
+    font-size: 14px;
+  }
+  /* Keep the dots logo (still the home link) but drop the title text so the bar
+     doesn't crowd the search box on phones. */
+  .book .book-header .topbar-title {
+    display: none;
+  }
+  .book .book-header #book-search-input {
+    flex: 0 1 150px;
+  }
+}
+
+/* ------------------------------------------------------------------------- *
+ * Content / "On this page" overlap and anchor offset
+ *
+ * The pagetoc sidebar is a fixed 200px column at right:28px, shown at >=1300px
+ * (see pagetoc.css). Without a gutter, the centered content column slides under
+ * it on wide viewports. Reserve a right gutter on the content pane at the same
+ * breakpoint so the text column and the TOC occupy disjoint horizontal space.
+ * Below 1300px the TOC is hidden and content uses the full width.
+ * ------------------------------------------------------------------------- */
+@media (min-width: 1300px) {
+  .book .book-body .page-wrapper {
+    padding-right: 248px;
+  }
+}
+
+/* The fixed top bar would otherwise hide a heading scrolled to via a TOC click
+   or a #hash link; offset the scroll landing so headings stop below the bar. */
+.book .page-inner h1,
+.book .page-inner h2,
+.book .page-inner h3 {
+  scroll-margin-top: 70px;
+}
