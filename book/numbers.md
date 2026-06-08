@@ -298,7 +298,7 @@ counter:
   is there precisely because the stop is excluded, and we want `n` itself included.
 - `range(start, stop, step)` takes a stride, so `range(0, 10, 2)` yields the evens `0, 2, 4, 6, 8`.
 
-[Control flow](control-flow.md) covers loops in full. Here the range starts at `2` because
+[Iteration](iteration.md) covers loops in full. Here the range starts at `2` because
 multiplying by `1` would be a no-op, and `factorial(0)` falls out correctly: `range(2, 1)` is empty,
 so the loop never runs and `result` stays `1`.
 
