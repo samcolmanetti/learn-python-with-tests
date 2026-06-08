@@ -4,7 +4,7 @@
 
 Grid DP is the same dynamic-programming idea you met in one dimension, laid out on a 2D table:
 each cell's answer is built from the cells you've already filled in above it and to its left. We'll
-keep a reusable shape in [`dp_grid/_template.py`](dp_grid/_template.py) and work three problems in
+keep a reusable shape in `dp_grid/_template.py` and work three problems in
 `dp_grid/solutions/`, each test-first.
 
 ## When to reach for grid DP

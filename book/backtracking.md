@@ -24,7 +24,7 @@ branch before you've paid for the whole subtree under it.
 
 ## The template
 
-The reusable skeleton lives in [`backtracking/_template.py`](backtracking/_template.py). It ships
+The reusable skeleton lives in `backtracking/_template.py`. It ships
 two concrete generators that show the shape. Here's `subsets`, which builds the power set:
 
 ```python
@@ -76,7 +76,7 @@ Same rhythm, and notice the choose/un-choose now flips two things in lockstep: `
 **Whatever you mutate on the way down, you undo on the way back up.** Keep that pairing tight and the
 rest is bookkeeping.
 
-The template's own tests live in [`backtracking/test_template.py`](backtracking/test_template.py) and
+The template's own tests live in `backtracking/test_template.py` and
 pin down the easy-to-miss edges: `subsets([])` is `[[]]` (the empty set still has one subset, the
 empty one), and three distinct items give eight subsets and six permutations. Run `uv run pytest`
 and they're green. Now let's solve some real problems with this skeleton.

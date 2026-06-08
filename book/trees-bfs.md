@@ -22,7 +22,7 @@ depth". When you hear it, picture a queue.
 
 ## The template
 
-Here's the skeleton from [`trees_bfs/_template.py`](trees_bfs/_template.py). It's plain
+Here's the skeleton from `trees_bfs/_template.py`. It's plain
 level-order traversal: return the node values grouped by depth.
 
 ```python
@@ -62,7 +62,7 @@ small variation on what we do inside that inner loop.
 
 The template uses a `Protocol` for the node type so it works with any object that has `.val`,
 `.left`, and `.right`. Our solutions use a concrete `TreeNode` from
-[`trees_bfs/node.py`](trees_bfs/node.py), the same minimal node the tree chapters share: a value
+`trees_bfs/node.py`, the same minimal node the tree chapters share: a value
 and two child links.
 
 ## Problem 1: Binary Tree Zigzag Level Order Traversal

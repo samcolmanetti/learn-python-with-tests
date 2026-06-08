@@ -2,7 +2,7 @@
 
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/trees_dfs)**
 
-Depth-first search on a binary tree is just recursion wearing a hat. You do something with the current node, then you recurse into its children, and the call stack remembers where you were. This is an **interview pattern**: a reusable [`trees_dfs/_template.py`](trees_dfs/_template.py) plus worked problems in `trees_dfs/solutions/`, each built test-first.
+Depth-first search on a binary tree is just recursion wearing a hat. You do something with the current node, then you recurse into its children, and the call stack remembers where you were. This is an **interview pattern**: a reusable `trees_dfs/_template.py` plus worked problems in `trees_dfs/solutions/`, each built test-first.
 
 ## When to reach for DFS
 

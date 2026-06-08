@@ -4,7 +4,7 @@
 
 Strings turn up in roughly half of all interview problems, and Python's are pleasant to work with once you internalise one fact: a `str` is *immutable*. You never change a string in place. You build a new one. We'll write three small functions test-first and let that single fact explain `join`, `split`, slicing, and why one innocent-looking loop is a quadratic trap.
 
-Everything lives in [`strings/strings.py`](strings/strings.py), built up behaviour by behaviour, with its tests in [`strings/test_strings.py`](strings/test_strings.py).
+Everything lives in `strings.py`, built up behaviour by behaviour, with its tests in `test_strings.py`.
 
 ## Write the test first
 

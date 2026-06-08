@@ -24,7 +24,7 @@ allocating an array.
 
 There's no single skeleton for bit problems the way there is for two pointers, but three operations
 carry almost all of them. Here they are as tested functions in
-[`bit_manipulation/_template.py`](bit_manipulation/_template.py):
+`bit_manipulation/_template.py`:
 
 ```python
 from __future__ import annotations

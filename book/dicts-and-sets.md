@@ -6,7 +6,7 @@ A dict gives you O(1) lookup by key, and a set gives you O(1) membership and the
 intersection and union. They're the two data structures interview problems lean on hardest, so
 we'll build four small functions test-first and meet `Counter` and `defaultdict` along the way.
 
-All four live in one module, [`dicts_and_sets/dicts_and_sets.py`](dicts_and_sets/dicts_and_sets.py),
+All four live in one module, `dicts_and_sets/dicts_and_sets.py`,
 with their tests next to them. Run everything with `uv run pytest dicts_and_sets/`.
 
 ## Write the test first

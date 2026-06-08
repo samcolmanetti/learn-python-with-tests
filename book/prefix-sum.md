@@ -2,7 +2,7 @@
 
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/prefix_sum)**
 
-Like two pointers, prefix sum is an **interview pattern**: a reusable [`prefix_sum/_template.py`](prefix_sum/_template.py)
+Like two pointers, prefix sum is an **interview pattern**: a reusable `prefix_sum/_template.py`
 plus worked problems in `prefix_sum/solutions/`, each built test-first. The idea is small and it
 pays off everywhere: do one pass to precompute cumulative sums, then answer any range-sum query
 with a single subtraction.

@@ -4,7 +4,7 @@
 
 Number theory shows up in interviews as small, self-contained puzzles: count the primes, reduce a
 fraction, raise something to a huge power without overflowing. Each one has a clean trick, and like
-the other pattern chapters this is a reusable [`math_problems/_template.py`](math_problems/_template.py)
+the other pattern chapters this is a reusable `math_problems/_template.py`
 plus worked problems in `math_problems/solutions/`, all built test-first.
 
 One housekeeping note before we start. The folder is `math_problems`, not `math`, on purpose. A

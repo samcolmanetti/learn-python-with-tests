@@ -22,7 +22,7 @@ from the middle. Neither one is enough on its own, and that tension is the lesso
 
 ## The template
 
-The piece that does the heavy lifting is a doubly linked list, so [`design_lru_cache/_template.py`](design_lru_cache/_template.py)
+The piece that does the heavy lifting is a doubly linked list, so `design_lru_cache/_template.py`
 is a small, reusable one. Each node knows its neighbours, so unlinking a node and splicing it back
 in are constant-time pointer swaps. No shifting, no scanning.
 

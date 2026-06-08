@@ -5,7 +5,7 @@
 Dynamic programming sounds scary and the name is no help at all. Strip the jargon and 1D DP is
 just this: you've got a problem whose answer for size `n` is built from the answers for a few
 smaller sizes. Work out the answers for the small cases, write them in a table, and fill the rest
-left to right. The reusable skeleton lives in [`dp_1d/_template.py`](dp_1d/_template.py) and the
+left to right. The reusable skeleton lives in `dp_1d/_template.py` and the
 worked problems in `dp_1d/solutions/`, each built test-first.
 
 ## When to reach for 1D DP

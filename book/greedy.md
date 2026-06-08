@@ -23,7 +23,7 @@ want dynamic programming or backtracking instead, not greedy.
 
 There's no skeleton to import here. Unlike two pointers or prefix sum, greedy has no single
 reusable shape: sometimes you sweep tracking one number, sometimes you sort first and then
-sweep. So [`greedy/_template.py`](greedy/_template.py) is a note, not a function:
+sweep. So `greedy/_template.py` is a note, not a function:
 
 ```python
 """Greedy has no single reusable skeleton, so this file is a note, not a template.

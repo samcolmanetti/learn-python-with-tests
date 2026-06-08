@@ -4,7 +4,7 @@
 
 This is the first **interview pattern** chapter, so a word on how these work. Each pattern
 chapter has three parts: a "when to reach for it" section that names the signals in a problem,
-a reusable template in [`two_pointers/_template.py`](two_pointers/_template.py) that shows the
+a reusable template in `two_pointers/_template.py` that shows the
 pattern in the abstract, and a handful of real problems in `two_pointers/solutions/`, each built
 test-first.
 

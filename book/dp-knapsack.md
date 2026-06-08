@@ -2,7 +2,7 @@
 
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/dp_knapsack)**
 
-Knapsack is an **interview pattern**: a reusable [`dp_knapsack/_template.py`](dp_knapsack/_template.py)
+Knapsack is an **interview pattern**: a reusable `dp_knapsack/_template.py`
 plus worked problems in `dp_knapsack/solutions/`, each built test-first. You have a budget and a
 pile of items, and you fill a 1D table indexed by the budget, asking one question at every cell:
 am I better off skipping this item or taking it?

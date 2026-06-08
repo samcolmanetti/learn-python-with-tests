@@ -3,7 +3,7 @@
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/bst)**
 
 A binary search tree is a binary tree with one extra rule, and that rule turns search into a
-walk down a single path. It's an **interview pattern**: a reusable [`bst/_template.py`](bst/_template.py)
+walk down a single path. It's an **interview pattern**: a reusable `bst/_template.py`
 holding the node and the invariant, plus worked problems in `bst/solutions/`, each built test-first.
 
 ## When to reach for a BST

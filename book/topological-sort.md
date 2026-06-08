@@ -2,7 +2,7 @@
 
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/topological_sort)**
 
-Topological sort is an **interview pattern**: a reusable [`topological_sort/_template.py`](topological_sort/_template.py)
+Topological sort is an **interview pattern**: a reusable `topological_sort/_template.py`
 plus worked problems in `topological_sort/solutions/`, each built test-first. Give it a graph of
 "this must come before that" and it hands you an order where every arrow points forward, or tells
 you that no such order exists because something depends on itself in a loop.

@@ -3,7 +3,7 @@
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/trie)**
 
 A trie (say it "try", it's short for re*trie*val) is a tree keyed by character: words that share a
-prefix share a path. It's an **interview pattern**, so we keep a reusable [`trie/_template.py`](trie/_template.py)
+prefix share a path. It's an **interview pattern**, so we keep a reusable `trie/_template.py`
 and build worked problems on top of it in `trie/solutions/`, each one test-first.
 
 ## When to reach for a trie
@@ -26,7 +26,7 @@ walk prefixes directly.
 
 ## The template
 
-Here's the whole skeleton from [`trie/_template.py`](trie/_template.py).
+Here's the whole skeleton from `trie/_template.py`.
 
 ```python
 from __future__ import annotations

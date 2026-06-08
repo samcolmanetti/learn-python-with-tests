@@ -2,7 +2,7 @@
 
 **[You can find all the code for this chapter here](https://github.com/samcolmanetti/learn-python-with-tests/tree/main/code/dijkstra)**
 
-Dijkstra's algorithm is an **interview pattern**: a reusable [`dijkstra/_template.py`](dijkstra/_template.py)
+Dijkstra's algorithm is an **interview pattern**: a reusable `dijkstra/_template.py`
 plus worked problems in `dijkstra/solutions/`, each built test-first. It finds the cheapest path from
 one node to every other node in a graph whose edges have non-negative weights, and the engine is a
 single `heapq`.

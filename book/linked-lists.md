@@ -22,7 +22,7 @@ could write `nodes[i]`, you've stopped thinking like a linked list.
 ## The node
 
 Everything in this chapter builds on one tiny class. Here it is from
-[`linked_lists/_template.py`](linked_lists/_template.py):
+`linked_lists/_template.py`:
 
 ```python
 from __future__ import annotations

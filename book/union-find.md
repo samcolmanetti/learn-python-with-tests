@@ -4,7 +4,7 @@
 
 Union find (also called Disjoint Set Union, or DSU) answers two questions about a pile of things
 that get merged into groups: "are these two in the same group?" and "merge these two groups". It's
-a reusable [`union_find/_template.py`](union_find/_template.py) plus worked problems in
+a reusable `union_find/_template.py` plus worked problems in
 `union_find/solutions/`, each built test-first.
 
 ## When to reach for union find

@@ -24,7 +24,7 @@ you read "count the islands" or "fill the region", you're doing a graph traversa
 
 ## The template
 
-The pattern lives in [`graphs_traversal/_template.py`](graphs_traversal/_template.py). Three small
+The pattern lives in `graphs_traversal/_template.py`. Three small
 functions: a BFS, a DFS, and a grid-neighbour helper.
 
 ```python
@@ -86,7 +86,7 @@ the four orthogonal neighbours (up, down, left, right) that actually fall inside
 diagonals, and nothing off the edge. Every grid problem in this chapter leans on it, so the
 bounds check lives here once instead of being copy-pasted into every solution.
 
-There's a test for the template at [`graphs_traversal/test_template.py`](graphs_traversal/test_template.py).
+There's a test for the template at `graphs_traversal/test_template.py`.
 The cycle cases (`{1: [2], 2: [3], 3: [1]}`) are the ones that earn their keep: without the
 `visited` set those tests would hang, not fail.
 

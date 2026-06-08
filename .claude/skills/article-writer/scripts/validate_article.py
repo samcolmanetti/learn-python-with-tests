@@ -132,6 +132,19 @@ def check(path: Path) -> tuple[list[str], list[str]]:
             "prev/next navigation from SUMMARY.md automatically."
         )
 
+    # 3d. No relative Markdown links to source files. A link like [`x.py`](folder/x.py) renders on
+    #     the Honkit site as a dead link (the .py is not a built page, so it 404s). Name source files
+    #     as inline `code` instead; the code-link line at the top already points at the repo.
+    for m in re.finditer(r"\[[^\]]*\]\(([^)]+)\)", prose):
+        target = m.group(1).strip()
+        if target.startswith(("http://", "https://", "#", "mailto:")):
+            continue
+        if target.split("#")[0].endswith((".py", ".txt", ".cfg", ".toml")):
+            errors.append(
+                f"relative link to a source file ({target}) 404s on the Honkit site. Reference it as "
+                "inline `code`, not a link; the code-link line already points at the repo."
+            )
+
     # 4. Tooling commands must use uv, not raw venv/pip.
     if re.search(r"python3?\s+-m\s+venv", prose) or re.search(r"\bpip\s+install\b", prose):
         errors.append("raw venv/pip command in prose. Use uv: `uv sync`, `uv run pytest`, `uv add`.")

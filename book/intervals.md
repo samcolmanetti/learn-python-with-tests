@@ -4,7 +4,7 @@
 
 An interval is a `[start, end]` pair, and almost every interval problem is the same move wearing
 a different hat: sort by start, then sweep once. The reusable skeleton lives in
-[`intervals/_template.py`](intervals/_template.py), and we build three worked problems test-first
+`intervals/_template.py`, and we build three worked problems test-first
 in `intervals/solutions/`.
 
 ## When to reach for sort-then-sweep

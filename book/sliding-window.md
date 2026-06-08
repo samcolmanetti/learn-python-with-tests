@@ -17,7 +17,7 @@ The tell is a question about a **contiguous subarray or substring**: "longest", 
 | **Flexible, longest** | the *longest* window that stays valid | grow right, shrink left only when invalid |
 | **Flexible, shortest** | the *shortest* window that's valid | grow right, shrink left while still valid |
 
-The template ([`sliding_window/_template.py`](sliding_window/_template.py)) has one function per
+The template (`sliding_window/_template.py`) has one function per
 shape. Below we ground each in a real problem.
 
 ## Problem 1: Maximum Sum Subarray of Size K (fixed)

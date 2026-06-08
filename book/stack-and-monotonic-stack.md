@@ -25,7 +25,7 @@ elements you pop to restore it have just found their answer. It's the new value.
 
 ## The template
 
-Here's the skeleton from [`stack_and_monotonic_stack/_template.py`](stack_and_monotonic_stack/_template.py).
+Here's the skeleton from `stack_and_monotonic_stack/_template.py`.
 It solves the bare "next greater element": for each index, the value of the next strictly-greater
 element to its right, or `-1` if there isn't one.
 
