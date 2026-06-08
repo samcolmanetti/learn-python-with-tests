@@ -79,6 +79,28 @@ Our next requirement is division, and division is where Python surprises people.
 - `//` is *floor division* and rounds toward negative infinity: `7 // 2 == 3`, but
   `-7 // 2 == -4` (not `-3`).
 
+The negative case is the one people get wrong, so it's worth doing by hand. Read `a // b` as two
+steps: do the real division, then *floor* the result, where "floor" means round down to the
+nearest integer less than or equal to it. For `-7 // 2`:
+
+1. Divide exactly: `-7 / 2 == -3.5`.
+2. Floor it: the largest integer that is still `<= -3.5` is `-4`, not `-3`.
+
+The trap is thinking "round down" means "drop the fraction". Dropping the fraction (what C and Java
+do) would give `-3`, because it rounds *toward zero*. Flooring rounds *toward negative infinity*,
+which for a negative number means moving further from zero. On a number line, "down" is always to
+the left:
+
+```
+  -5     -4     -3     -2     -1      0
+---|------|------|------|------|------|---
+          ▲      ▲
+          │      └── exact result (-3.5)
+          └───────── floored result (-4)
+```
+
+`-3.5` sits between `-4` and `-3`, and flooring takes the integer to its left, so `-4` wins.
+
 The built-in `divmod(a, b)` returns `(quotient, remainder)` together, which is exactly what you
 want for digit-extraction and grid-coordinate problems.
 
