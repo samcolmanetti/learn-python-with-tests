@@ -343,5 +343,3 @@ whole scan stays O(n) over a fixed alphabet. Re-run the tests.
 - **Fixed** windows update with a single add and subtract. Never re-sum.
 - For substring-count problems, a **`Counter` window** compared against the target is the go-to.
   Remember to drop zero entries so the comparison works.
-
-Next: [Binary Search](binary-search.md).

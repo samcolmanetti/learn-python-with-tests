@@ -463,6 +463,3 @@ tests one last time. Green.
   `except` re-raises the current exception with its traceback intact.
 - **`DID NOT RAISE`** is the failing output you'll see whenever a `pytest.raises` block finishes
   without throwing. Treat it like any other red test: the thing you expected didn't happen.
-
-Next: [Mocking](mocking.md), where we replace the real collaborators of a function so we can test
-it in isolation.

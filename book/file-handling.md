@@ -391,6 +391,3 @@ it's what I reach for first.
   `finally`. The class form is `__enter__` and `__exit__`.
 - **Keep file tests hermetic with `tmp_path`.** They write into a throwaway directory pytest cleans
   up, so a test never touches real files or depends on another test.
-
-Next: [Exceptions](exceptions.md), where the `try`/`finally` we leaned on here becomes the main
-event.

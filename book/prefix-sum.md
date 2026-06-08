@@ -404,6 +404,3 @@ swapped in for `+` and a second pass from the other end. The pattern bends.
   one pass. Seed the map with `{0: 1}`.
 - **The idea generalises**: swap `+` for `*` (and add a second pass) and you get prefix/suffix
   products with no division.
-
-Next: [Stack and Monotonic Stack](stack-and-monotonic-stack.md), where the structure you carry
-along the pass is a stack instead of a cumulative number.

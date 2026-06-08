@@ -418,6 +418,3 @@ the ones that need the full table. Re-run the tests to confirm nothing moved.
 - **A variable reach forces you to keep the whole table** (coin change reads `dp[a - coin]` for
   every coin), and **a sentinel like `amount + 1` folds "impossible" into a `min`** so the `-1`
   case needs no special branch.
-
-Next: [DP: Grid](dp-grid.md), where the state grows a second index and the table becomes a grid
-you fill row by row.

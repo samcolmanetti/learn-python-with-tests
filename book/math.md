@@ -405,6 +405,3 @@ Re-run the tests and they stay green.
 - **Binary exponentiation** computes `base ** exp` in O(log exp) by reading the exponent's bits,
   squaring the base each step and multiplying it in on a set bit. Reduce mod `mod` as you go.
 - **Name your folder `math_problems`, never `math`**, so you don't shadow the standard library.
-
-Next: [Bit Manipulation](bit-manipulation.md), where the `exp & 1` and `exp >>= 1` moves from fast
-power become the whole toolkit.

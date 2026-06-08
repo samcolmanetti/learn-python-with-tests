@@ -303,5 +303,3 @@ def fib(n):
 - **Always apply `functools.wraps` to your wrapper** so the wrapped function keeps its `__name__` and `__doc__`. Skipping it gives every function the name `wrapper` in tracebacks.
 - **Memoize by caching results in a dict keyed on the arguments**, returning the stored value on a repeat call. It only works when the arguments are hashable.
 - **Prefer `functools.lru_cache` (or `functools.cache`) in real code.** It's the same idea, written and tested for you, and it's a one-line speed-up for recursive functions.
-
-Next: [Design an LRU Cache](design-lru-cache.md), where we build the eviction policy that `lru_cache` hides behind that one decorator line.

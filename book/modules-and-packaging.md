@@ -382,5 +382,3 @@ The dispatch dict `{"circle": circle_area, "square": square_area}` is rebuilt on
 - **`__all__` declares the public surface** and is something a test can assert on, so adding a name and forgetting to list it turns into a red bar.
 - **Relative imports (`from .square import area`) for siblings in your own package, absolute imports for the standard library.** Relative imports keep the package movable.
 - **The `if __name__ == "__main__"` guard** lets one file be both an importable module and a runnable script. Imports see the module name, `python -m` sees `"__main__"`.
-
-Next: [Object-oriented Python](object-oriented-python.md), where the unit we package up is a class instead of a folder of functions.

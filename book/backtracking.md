@@ -478,6 +478,3 @@ empty-input check into `dfs` would tangle the leaf logic for no gain. Re-run the
   to match: an illegal branch you never enter costs you nothing.
 - The same skeleton solved a sum target, a grammar of brackets, and a phone keypad. **The choices and
   the leaf test change; the choose/explore/un-choose rhythm doesn't.**
-
-Next: [Dynamic Programming (1D)](dp-1d.md), where the same tree of choices gets memoized so you stop
-re-exploring branches you've already solved.

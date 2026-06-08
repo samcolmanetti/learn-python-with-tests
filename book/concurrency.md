@@ -186,5 +186,3 @@ Both pass as-is, because the implementation already handles them. **`asyncio.run
 - **`ThreadPoolExecutor` maps a function over inputs on a pool of threads**, and `executor.map` returns results in input order, which keeps concurrent code testable without sorting.
 - **`asyncio` runs coroutines on one thread with an event loop.** `async def` defines a coroutine, `await` yields to the loop, and `asyncio.gather` runs many at once and returns results in order.
 - **`asyncio.run` is the bridge**: it runs a top-level coroutine from synchronous code, and it's also the simplest way to test a coroutine, call it and assert on the result.
-
-Next: [Mocking](mocking.md), where we replace slow or external collaborators (like the network calls these threads and coroutines were standing in for) with fakes we control.

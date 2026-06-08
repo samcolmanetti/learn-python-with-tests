@@ -464,6 +464,3 @@ turns a scary-looking problem into one you've already solved. Re-run the tests.
   and combinations stay unordered.
 - **Reshape before you reach.** Equal partition is "hit `total / 2`", and target sum is a subset
   sum after the `P + N` algebra. The hard part is often spotting the knapsack, not coding it.
-
-Next: [DP: Intervals](dp-intervals.md), where the table is indexed by a range rather than a
-budget, and each cell is built from smaller ranges inside it.

@@ -359,5 +359,3 @@ So before you reach for `patch`, ask: is this a boundary, or is it my own code? 
 - **`monkeypatch`** sets environment variables and attributes for one test and restores them automatically. Use it for env vars and `sys`-level state.
 - **`patch`** swaps a name for a mock as a context manager or a decorator. Patch the name *where it's used*, not where it's defined.
 - **Mock the boundaries** (clock, network, filesystem, env), never your own logic. Inject dependencies so the seams exist before you need them.
-
-Next: [Property-Based Testing](property-based-testing.md), where instead of picking example inputs by hand, we let the tool generate hundreds of them and hunt for the one that breaks us.

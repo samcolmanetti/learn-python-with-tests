@@ -25,8 +25,8 @@ more strict TDD cycles, each adding one requirement, with these headings in this
 8. `## Refactor` (tidy with the tests as a safety net, then re-run them)
 9. `## Repeat for new requirements` (introduce the next behaviour and walk the loop again from
    "Write the test first"; most chapters cycle a few times)
-10. `## Wrapping up` (a short bullet list naming what was learned, then a one-line link to the next
-    chapter)
+10. `## Wrapping up` (a short bullet list naming what was learned; end there, no "Next:" link.
+    Honkit renders the prev/next navigation from `SUMMARY.md` automatically)
 
 ## Template B: an interview-pattern chapter
 
@@ -50,8 +50,8 @@ problem walks the full TDD cycle, so the cycle steps are `###` headings under ea
 7. `## Problem 2: [name]` and optionally `## Problem 3: [name]`, each repeating the cycle. The later
    problems can move a little faster, but still show the test first, the failure, the passing code,
    and a refactor or a note that none is needed.
-8. `## Wrapping up` (bullets naming the pattern, its invariant or trigger, and a common variant, then
-   a one-line link to the next chapter)
+8. `## Wrapping up` (bullets naming the pattern, its invariant or trigger, and a common variant;
+   end there, no "Next:" link. Honkit builds the prev/next navigation from `SUMMARY.md`)
 
 ## The rules that hold for both
 

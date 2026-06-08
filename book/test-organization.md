@@ -392,6 +392,3 @@ isn't protecting you.
 - **Arrange-act-assert** is the shape of a good test: set up, do one thing, check one outcome.
 - **Markers let you tag and deselect tests** (`-m "not slow"`), so your inner loop stays fast and
   the slow tests still run in CI.
-
-Next: [pytest deep dive](pytest-deep-dive.md), which goes further into fixture scopes, ids, and the
-flags that make pytest's output tell you exactly what broke.

@@ -614,5 +614,3 @@ None needed. This is the balanced-tree trick again with a different second answe
 - **The aggregate-up shape** (`max_depth`, `is_balanced`, `diameter`) asks each child for a number and folds the children's numbers into its own. This is the "return info up the tree" pattern.
 - **When you need a second answer on the same pass**, encode it in the return value (a `-1` sentinel for balance) or carry it in a `nonlocal` (the running `best` for diameter). Either way you stay at O(n) instead of recomputing height at every node.
 - **Watch the problem's exact words.** "Root-to-leaf" means the leaf check matters; "doesn't have to pass through the root" means the answer can hide in a subtree.
-
-Next: [BST](bst.md), where the tree's ordering lets DFS prune half the work at every step.

@@ -546,6 +546,3 @@ all eleven tests pass.
   `__lt__`.
 * **`classmethod` vs `staticmethod`**: `cls` for alternate constructors, neither for a plain
   helper that just belongs in the namespace.
-
-Next: [Classes & dataclasses](classes-and-dataclasses.md), where `@dataclass` writes `__init__`,
-`__repr__`, and `__eq__` for you so you can stop typing them by hand.

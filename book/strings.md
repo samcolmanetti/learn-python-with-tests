@@ -296,5 +296,3 @@ Both green. `join` walks the list once, works out the total size up front, alloc
 * **`split()` and `join`**: bare `split()` collapses runs of whitespace and drops empties; `join` is a method on the separator, `" ".join(words)`.
 * **`Counter` is a multiset**, which makes anagram and frequency checks a one-pass `==`.
 * **`+=` in a loop is O(n^2)** because each step copies the whole string. Collect pieces in a list and `join` once for O(n).
-
-Next: [Comprehensions](comprehensions.md), where that "collect pieces in a list" habit gets its own concise syntax.

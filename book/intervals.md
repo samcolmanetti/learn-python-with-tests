@@ -427,6 +427,3 @@ become one. Re-run the tests.
   touch (`<=`); Meeting Rooms treats back-to-back as fine (`<`). Read the prompt.
 - **When the input is already sorted, don't re-sort.** Insert Interval stays O(n) by sweeping in
   three phases instead of paying for another sort.
-
-Next: [Interval DP](dp-intervals.md), where instead of sweeping intervals left to right you build
-answers up from smaller sub-intervals.

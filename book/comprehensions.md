@@ -433,6 +433,3 @@ not want every value.
 * Generators swap `return` for `yield` and produce values lazily, so they work on huge or infinite
   inputs without building the whole sequence. `itertools.count` and `itertools.islice` are the
   handy way to test that laziness.
-
-Next: [Iterators](iterators.md), where we go one level down and see the protocol that makes both
-comprehensions and generators work.

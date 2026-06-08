@@ -376,5 +376,3 @@ further than `slow`. Re-run the tests to confirm.
 - **Opposite direction** for sorted or symmetric pair problems (palindrome, two-sum, container).
 - **Same direction (fast/slow)** for in-place filtering and cycle detection.
 - The invariant is the design: state it before you code, and the pointer moves follow.
-
-Next: [Sliding Window](sliding-window.md), two pointers' close cousin.

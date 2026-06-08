@@ -343,6 +343,3 @@ destination instead of all of them.** Re-run the tests to confirm both forms agr
   building the neighbours and reading the answer back out of `dist`.
 - **A grid is a graph.** When movement is four-directional, "minimum path sum" stops being clean DP and
   becomes Dijkstra over `(row, col)` nodes.
-
-Next: [Union Find](union-find.md), for the connectivity questions where you don't care about path cost,
-only about which nodes can reach each other at all.

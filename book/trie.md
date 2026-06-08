@@ -549,6 +549,3 @@ to be sure.
 - **The variant to remember is the DFS over the trie.** A `.` wildcard branches into every child; a
   shortest-root query stops at the first word-end; a buildable-word search only steps through word
   nodes. Same walk, different stopping rule.
-
-Next: [Backtracking](backtracking.md), where the same "try a branch, abandon it the moment it can't
-work" idea drives word-search grids, and a trie often rides along to prune dead paths early.

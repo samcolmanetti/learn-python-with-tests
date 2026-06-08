@@ -426,6 +426,3 @@ loop count to fake a ring doesn't change the complexity class.** Re-run the test
   once and popped once, so the scan is O(n) where the brute force is O(n²).
 - **For a circular array, iterate `2n` and index with `% n`, pushing only on the first lap.** The
   complexity stays O(n).
-
-Next: [Binary Search](binary-search.md), where instead of carrying a stack along one pass, we throw
-away half the search space on every step.

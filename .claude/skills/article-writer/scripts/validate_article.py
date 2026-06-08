@@ -42,6 +42,14 @@ WEAK_WORDS = ["simply", "obviously", "just simply", "of course,", "basically,", 
 CODE_LINK_RE = re.compile(r"\*\*\[You can find all the code for this chapter here\]\(([^)]+)\)\*\*")
 FENCE_RE = re.compile(r"^(```|~~~)")
 
+# Authoring/tool-call tags that must never survive into a chapter. These leak when an agent's
+# function-call wrapper ends up in the file instead of around it.
+LEAKED_TAG_RE = re.compile(r"</?(content|invoke|parameter|antml:[\w-]+)\b")
+
+# A hand-written "Next: [Title](slug.md)" footer. These are banned now that Honkit renders the
+# prev/next navigation from SUMMARY.md, so we only use this to detect and reject a leftover one.
+NEXT_LINK_RE = re.compile(r"Next\b.*?\[[^\]]+\]\(([^)#]+\.md)[^)]*\)")
+
 
 def strip_code(text: str) -> str:
     """Remove fenced code blocks and inline code so prose checks ignore code."""
@@ -108,6 +116,21 @@ def check(path: Path) -> tuple[list[str], list[str]]:
                 f"code-link is a relative folder ({target}); it 404s on the Honkit site because a directory has no "
                 "page. Use a GitHub tree URL like https://github.com/USER/python-with-tests/tree/main/folder."
             )
+
+    # 3b. Leaked authoring/tool-call tags. Check the raw text, since these can land inside or
+    #     outside code fences and must never ship either way.
+    for i, line in enumerate(raw.splitlines(), 1):
+        if LEAKED_TAG_RE.search(line):
+            errors.append(f"L{i}: leaked authoring tag in '{line.strip()}'. Delete it; only chapter prose belongs here.")
+
+    # 3c. No hand-written "Next:" footer. Honkit renders the prev/next arrows from SUMMARY.md, so
+    #     an in-prose pointer is redundant, drifts out of sync, and is where the leaked tags landed.
+    last_para = raw.rstrip().rsplit("\n\n", 1)[-1].strip()
+    if last_para.startswith("Next") and NEXT_LINK_RE.search(last_para):
+        errors.append(
+            "chapter ends with a hand-written 'Next:' pointer. Delete it; Honkit builds the "
+            "prev/next navigation from SUMMARY.md automatically."
+        )
 
     # 4. Tooling commands must use uv, not raw venv/pip.
     if re.search(r"python3?\s+-m\s+venv", prose) or re.search(r"\bpip\s+install\b", prose):

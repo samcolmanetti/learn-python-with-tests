@@ -597,6 +597,3 @@ cycle starts by resetting one pointer to the head; we only needed the yes/no her
   as in the merge. Return `dummy.next`.
 - **Floyd's cycle detection** uses fast/slow and the fact that on a loop the gap shrinks by one each
   step, so the pointers must collide. Compare with `is`, not `==`.
-
-Next: [Stack and Monotonic Stack](stack-and-monotonic-stack.md), where instead of carrying pointers
-along the walk you carry a stack, and the order you pop things off is the answer.

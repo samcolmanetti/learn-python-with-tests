@@ -297,5 +297,3 @@ Look at the line `counts: dict[str, int] = {}`. That's a *variable annotation*, 
 - **The syntax is a colon for parameters and variables, an arrow for the return**: `name: str`, `-> int`, `counts: dict[str, int] = {}`.
 - **Built-in generics describe what's inside a container**: `list[int]`, `dict[str, int]`. On Python 3.9 they need `from __future__ import annotations` at the top of the file.
 - **`Optional[X]` is the honest signature for anything that can return `None`.** It's `Union[X, None]` written shorter, and it forces callers to face the empty case.
-
-Next: [Classes and dataclasses](classes-and-dataclasses.md), where these same annotations describe the fields of a type you define yourself.

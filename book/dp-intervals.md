@@ -470,5 +470,3 @@ tests.
 - **Many of these reduce to each other.** Longest palindromic subsequence is LCS of a string and
   its reverse. Knowing the reduction is interview gold; knowing the table is what saves you when
   there's no reduction.
-
-Next: [Trie](trie.md), where the structure you build isn't a grid but a tree of shared prefixes.

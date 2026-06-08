@@ -264,7 +264,3 @@ One caveat worth holding onto:
   `[::2]` steps.
 - **Slicing tolerates out-of-range bounds**; indexing does not.
 - **Assignment aliases, slicing copies.** `b = a` shares the list; `b = a[:]` copies it.
-
-Next up, the testing toolbox: [pytest deep dive](pytest-deep-dive.md).
-</content>
-</invoke>

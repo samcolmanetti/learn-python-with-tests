@@ -63,5 +63,6 @@ on the reds, not on padding the green count.
 - **Weekly:** one [speedrun](speedrun-strategy.md), timed, no reference, mixed patterns, to
   simulate interview pressure.
 
-Next: start with [Hello, pytest](hello-pytest.md), or jump to the patterns with
-[Two Pointers](two-pointers.md).
+If you're starting from scratch, work through the fundamentals in order beginning with
+[Hello, pytest](hello-pytest.md). If you already know Python and came for the algorithms, jump
+straight to the patterns with [Two Pointers](two-pointers.md).

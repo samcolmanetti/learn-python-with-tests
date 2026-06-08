@@ -589,6 +589,3 @@ The catch worth remembering: all of these are O(h), and `h` is only O(log n) if 
 balanced. Insert sorted data into a plain BST and it degrades into a linked list with O(n)
 everything. Self-balancing trees fix that, but for interviews the four walks above carry you a long
 way.
-
-Next: [Trees, DFS](trees-dfs.md), where we drop the ordering rule and learn the general
-depth-first traversals that work on any tree.

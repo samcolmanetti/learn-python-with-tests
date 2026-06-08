@@ -353,6 +353,3 @@ Course Schedule II with the order thrown away. Re-run the tests one more time.
   its prerequisites are already placed.
 - **A common variant** swaps the `deque` for a heap when you want the *lexicographically smallest*
   valid order, picking the smallest ready node each step instead of any ready node.
-
-Next: [Dijkstra](dijkstra.md), where the queue becomes a priority queue and the thing you track
-along the way is distance instead of in-degree.

@@ -407,5 +407,3 @@ throws at you. No code to move; re-run the tests one last time.
   `k`, and the survivors are your answer in O(n log k).
 - **Heap on a computed key, not the raw value.** Tuple it as `(key, payload)` (frequency, or squared
   distance) and let tuple comparison do the ordering.
-
-Next: [Intervals](intervals.md), where a heap of end-times tells you when a meeting room frees up.

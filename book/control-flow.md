@@ -485,6 +485,3 @@ then. Re-run the tests and watch all of them stay green.
   every edge.
 * Truthiness: `[]`, `0`, `""`, and `None` are falsy; the ternary `a if cond else b` is the one-line
   conditional. `match`/`case` is a 3.10+ option we're skipping here.
-
-Next: [Comprehensions](comprehensions.md), where a loop that builds a list collapses into a single
-expression.

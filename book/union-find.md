@@ -331,6 +331,3 @@ different questions. Re-run the tests.
 - **`union` returning `False` means the two were already connected.** That single boolean is cycle
   detection in an undirected graph: the first edge that fails to merge is the one that closes the
   loop.
-
-Next: [Topological Sort](topological-sort.md), where we order a directed graph instead of grouping
-an undirected one, and the cycle we want to detect breaks the ordering rather than closing a loop.

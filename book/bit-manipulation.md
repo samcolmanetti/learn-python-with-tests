@@ -391,6 +391,3 @@ pick the subproblem: lop off the last bit. (`i & ~1` would also drop the lowest 
   reading individual bits.
 - **Bit counts have a one-line recurrence**, `count(i) == count(i >> 1) + (i & 1)`, which is
   dynamic programming reusing a smaller subproblem.
-
-Next: [Math](math.md), where a few number-theory tricks (gcd, modular arithmetic, digit
-manipulation) play the same role that these bit tricks do here.

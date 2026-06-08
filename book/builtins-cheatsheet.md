@@ -140,5 +140,3 @@ solution against.
 - **`deque` for queues, `heapq` for priority, `Counter`/`defaultdict` for tallies and groups,
   `bisect` for sorted search.**
 - Picking the right structure is often the difference between O(n²) and O(n), and far less code.
-
-Next: [Sorting & custom comparators](sorting-and-comparators.md).

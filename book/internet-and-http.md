@@ -289,6 +289,3 @@ dependency is buried deeper. Run `uv run pytest` and the whole file is green.
   argument value, or `unittest.mock.patch` of the module-level name won't take effect.
 - **Testability propagates.** Build on an injectable seam and everything above it (`get_user_name`)
   is testable for free.
-
-Next: [Mocking](mocking.md), which takes the swap-out-the-dependency idea and goes deeper on fakes,
-stubs, spies, and when each one is the right call.

@@ -101,8 +101,9 @@ Then walk the TDD loop, repeating it once per new requirement. Use these heading
 ## Refactor
 ```
 
-Close with `## Wrapping up`: a short bullet list that *names* what was learned, and a one-line
-link to the next chapter. The wrap-up names things, it does not re-teach them.
+Close with `## Wrapping up`: a short bullet list that *names* what was learned. The wrap-up names
+things, it does not re-teach them. Do not end with a "Next:" link to another chapter; Honkit
+renders the prev/next navigation from `SUMMARY.md` automatically.
 
 Pattern chapters add a "when to reach for it" section before the first problem and walk the
 pattern's `_template.py`. See `two-pointers.md` and `sliding-window.md` for the exemplars.

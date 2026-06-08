@@ -351,6 +351,3 @@ the hood. Building the list by hand once is how you earn the right to use the sh
 - **Store the key on the node** so eviction can delete from the dict in O(1) instead of scanning.
 - The standard-library shortcut is `collections.OrderedDict` with `move_to_end` and
   `popitem(last=False)`, which is this same structure with the bookkeeping done for you.
-
-Next: [Heaps](heaps.md), another chapter where choosing the right structure is the whole solution,
-this time for "give me the smallest thing, repeatedly" in O(log n).

@@ -60,5 +60,3 @@ Every chapter walks the same loop: **write the failing test → watch it fail �
 pass → refactor**. By the time you've done it across the Python fundamentals and a dozen
 interview patterns, it's automatic. In the real interview you won't be *doing TDD*; you'll just
 be someone who naturally starts from examples, names edge cases, and works in verified steps.
-
-Next: [How to study with this book](how-to-study.md).

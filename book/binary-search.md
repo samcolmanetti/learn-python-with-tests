@@ -425,5 +425,3 @@ minimum capacity, minimum eating speed, smallest divisor, and more. Re-run the t
 - **Binary search the answer space**, not just arrays, for min/max-feasible-value problems.
 - Reach for `bisect` in practice, and pin your hand-written versions with **property tests**
   against `bisect` and `math.isqrt`.
-
-Next: [Prefix Sum](prefix-sum.md).

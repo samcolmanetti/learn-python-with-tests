@@ -537,6 +537,3 @@ do at each cell.** Re-run the tests to confirm the safety net's still holding.
 - **The grid problems are one skeleton with three accumulators**: count connected components
   (islands), recolour them (flood fill), or measure the biggest (max area). When the traversal
   mutates what it walks, the mutation can replace `visited` entirely.
-
-Next: [Backtracking](backtracking.md), where DFS stops just visiting nodes and starts building up
-and tearing down a candidate solution as it goes.

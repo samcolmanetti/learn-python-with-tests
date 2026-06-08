@@ -122,5 +122,3 @@ the largest arrangement starts with `0`, every digit is `0`, so the answer is ju
 - Python's sort is **stable**, so rely on it for "preserve original order among equals".
 - **`cmp_to_key`** is the escape hatch for genuinely *pairwise* ordering (Largest Number,
   custom orderings). Reach for it only when no per-element key exists.
-
-Next, the main event: the [Interview patterns](two-pointers.md), starting with Two Pointers.

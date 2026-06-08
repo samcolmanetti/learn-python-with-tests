@@ -81,5 +81,3 @@ while you can still think clearly, instead of discovering them when a hidden cas
 - Mock boundaries, not your own logic, and rarely at that in interview problems.
 - Optimise prep for **patterns reproduced from blank files**, not problem count.
 - Make your reasoning **visible**: contract, edge cases, trade-offs, brute-force-then-optimise.
-
-Next: put it under time pressure with the [Speedrun strategy](speedrun-strategy.md).

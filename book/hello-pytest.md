@@ -272,5 +272,3 @@ live. Re-run the tests: still green, and now the design is cleaner than the code
 - **You edit one file in place.** No version folders, you just keep changing your two files.
 - **Default arguments** keep functions backward-compatible as requirements grow.
 - **`@pytest.mark.parametrize`** turns a table of cases into individually-reported tests.
-
-Next: [Numbers](numbers.md).

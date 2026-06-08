@@ -501,6 +501,3 @@ return after touching a tiny fraction of the nodes. **When the question is "shor
 - **For minimum depth, BFS returns at the first leaf it meets**, which is the shallowest, so it
   beats DFS by not exploring the whole tree. Carry depth in the queue as a `(node, depth)` pair,
   and remember a one-child node is not a leaf.
-
-Next: [Graph Traversal](graphs-traversal.md), where the same queue walks a graph instead of a
-tree, and the new worry is not revisiting nodes you've already seen.

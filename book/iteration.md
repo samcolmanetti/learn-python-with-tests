@@ -194,5 +194,3 @@ We'll lean on `join` throughout the string and pattern chapters.
 - **Test the zero/empty boundary**: `range(0)` runs the body zero times.
 - **`str * int` repeats a string**; prefer idiomatic Python once tests have your back.
 - **Strings are immutable**: build big strings with a list and `"".join(...)`, not `+=`.
-
-Next: [Lists & slicing](lists-and-slicing.md).

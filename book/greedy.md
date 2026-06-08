@@ -405,6 +405,3 @@ one pass to cut, O(n) time. Re-run the tests.
   That collapse from O(n^2) to O(n) is usually the sign a greedy is hiding in the problem.
 - **A common trap**: greedy *feels* right far more often than it *is* right. If you can imagine
   wanting to undo a choice, reach for dynamic programming or backtracking instead.
-
-Next: [Intervals](intervals.md), where the cut-when-the-running-end-closes idea from partition
-labels becomes the main event.

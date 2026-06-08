@@ -90,7 +90,7 @@ We'll specify a `divide` helper that wraps `divmod` and guards against dividing 
 ```python
 import pytest
 
-from number_basics import add, divide, factorial
+from number_basics import add, divide
 
 
 def test_divide_returns_quotient_and_remainder():
@@ -170,7 +170,12 @@ grow as large as memory allows.
 
 ### Write the test first
 
+Extend the import to pull in `factorial`, then add the tests:
+
 ```python
+from number_basics import add, divide, factorial
+
+
 def test_factorial_uses_arbitrary_precision():
     assert factorial(5) == 120
     assert factorial(0) == 1
@@ -249,7 +254,3 @@ because you never have to worry about integer overflow in Python. Re-run the tes
 - **Python integers never overflow.** Factorials, big sums, and bit tricks on huge numbers are
   all safe.
 - **`pytest.raises`** is how you assert on error paths.
-
-Next: [Iteration](iteration.md).
-</content>
-</invoke>

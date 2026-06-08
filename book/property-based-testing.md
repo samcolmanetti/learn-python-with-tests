@@ -299,7 +299,3 @@ Together they cover far more than either alone.
 - **Shrinking** reduces any failure to a minimal counterexample, often the bug, handed to you.
 - **Round trips, invariants, and brute-force equivalence** are the everyday property patterns.
   The last is gold for validating interview optimizations.
-
-Next: [Complexity & Big-O](complexity.md).
-</content>
-</invoke>

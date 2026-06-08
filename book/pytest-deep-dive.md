@@ -334,5 +334,3 @@ Built-in markers you'll reach for: `@pytest.mark.skip(reason=...)`,
   output.
 - **Markers** tag tests so you can slice the suite (`-m "not slow"`). Register custom ones in
   `pyproject.toml`.
-
-Next: generate your test cases automatically with [property-based testing](property-based-testing.md).

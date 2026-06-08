@@ -414,6 +414,3 @@ chapter is green.
   it dedupes for free.
 - **`defaultdict(list)` groups and `defaultdict(int)` counts**, both by replacing a
   "create-if-missing" branch with a factory.
-
-Next: [Comprehensions & generators](comprehensions.md), where we build these same dicts and sets
-in a single expression instead of a loop.

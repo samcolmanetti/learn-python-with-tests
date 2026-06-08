@@ -323,6 +323,3 @@ moved.
   boilerplate.
 - **Generators are lazy**, so they can be infinite. Pair an endless generator with `itertools.islice`
   (or `takewhile`, `chain`, and friends) to take exactly what you need.
-
-Next: [Comprehensions](comprehensions.md), where the same lazy iteration shows up as generator
-expressions and the eager list, set, and dict comprehensions.

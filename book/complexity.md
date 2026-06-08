@@ -79,6 +79,3 @@ can a set replace a scan? can sorting get you two pointers? can a heap avoid a f
 - Aim for **O(n) or O(n log n)** on inputs up to ~10⁵.
 - Always name **time and space**; patterns usually trade space for time.
 - Know the **hidden O(n)s**: `in list`, `pop(0)`, `insert(0, …)`, and `+=` on strings.
-
-Next: the [Built-in data structures cheat sheet](builtins-cheatsheet.md), the tools that make
-the fast option the easy option.

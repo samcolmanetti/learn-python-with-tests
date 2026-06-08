@@ -418,6 +418,3 @@ type. Re-run the tests one last time and watch them stay green.
   you stop hand-writing boilerplate.
 - **`@dataclass(frozen=True)` makes instances read-only and hashable**, giving you value equality
   and a consistent hash together. That's the pairing you want for a value type.
-
-Next: [Decorators](decorators.md), where we look at how `@dataclass` and friends wrap a class or
-function, and write our own.

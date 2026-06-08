@@ -436,6 +436,3 @@ last time.
   cheapest, and `1 + min(up, left, diag)` measures the largest square. Same walk, different fold.
 - **Watch the units.** Maximal Square stores side lengths but returns area, and that off-by-a-square
   is the kind of thing a test should pin down.
-
-Next: [DP on a 1D array](dp-1d.md), the one-dimensional version of this same fill-a-table-from-its-
-neighbours idea.
