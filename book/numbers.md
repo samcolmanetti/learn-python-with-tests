@@ -6,8 +6,8 @@
 > named `numbers` would shadow Python's standard-library `numbers` module. That's a small but
 > real interview-adjacent lesson: naming collisions with the stdlib bite.
 
-Python's numeric model has a couple of features that come up constantly in interviews: two
-different division operators, and integers that never overflow. Let's pin both down with tests.
+Python's numeric model has a couple of features that come up constantly in interviews: the way
+division and remainder behave, and integers that never overflow. Let's pin both down with tests.
 
 ## Write the test first
 
@@ -105,8 +105,9 @@ the left:
 `%` is the partner of `//`. The remainder is whatever is left of `a` after you take out the whole
 multiples the quotient counted: `a % b == a - (a // b) * b`. So `1 % 10 == 1`, because zero tens
 come out of `1` and the whole `1` is left over (it is *not* `10`). The remainder is always smaller
-in magnitude than the divisor and takes the divisor's sign, which is why `-7 % 2 == 1`. Put the two
-together and `(a // b) * b + (a % b)` always rebuilds `a`.
+in magnitude than the divisor and takes the divisor's sign, which is why `-7 % 2 == 1`: run it
+through the formula and `-7 - (-4) * 2 == -7 + 8 == 1`. Put the two together and
+`(a // b) * b + (a % b)` always rebuilds `a`.
 
 The built-in `divmod(a, b)` hands you both at once as `(a // b, a % b)`, which is exactly what you
 want for digit-extraction and grid-coordinate problems.
@@ -118,7 +119,7 @@ index `row * cols + col`. To go the other way, from a flat index back to `(row, 
 floor division and remainder, so `divmod` does it in one call:
 
 ```python
-cols = 4  # a 3-by-4 grid flattened row by row
+cols = 4  # a grid 4 columns wide, stored row by row
 row, col = divmod(7, cols)   # (1, 3): index 7 is row 1, column 3
 flat = row * cols + col      # 7 again, the inverse
 ```
@@ -200,12 +201,16 @@ The tests pass.
 
 That `raise` is worth a pause if you're coming from another language. Python *raises* exceptions
 rather than *throwing* them, and you catch them with `try`/`except`, not `try`/`catch`. An exception
-is just an object you signal with `raise`. The built-in ones you'll hit most are `ValueError` (a
-value of the right type but wrong content, like the negative factorial we reject in a moment),
-`TypeError` (the wrong kind of thing entirely), and `KeyError` and `IndexError` (a missing dict key
-or an out-of-range list index). `ZeroDivisionError` is the one Python itself raises for `1 / 0`, and
-we raise it deliberately here. In the tests, `pytest.raises` is the mirror image: it asserts that
-the code under it raised what you expected. [Exceptions](exceptions.md) goes into the full picture.
+is just an object you signal with `raise`. The built-in ones you'll hit most:
+
+- `ValueError`: the right type but wrong content, like the negative factorial we reject in a moment.
+- `TypeError`: the wrong kind of thing entirely.
+- `KeyError`: a missing dict key.
+- `IndexError`: an out-of-range list index.
+- `ZeroDivisionError`: what Python itself raises for `1 / 0`, and what we raise deliberately here.
+
+In the tests, `pytest.raises` is the mirror image of `raise`: it asserts that the code under it
+raised what you expected. [Exceptions](exceptions.md) goes into the full picture.
 
 That `-7 // 2 == -4` behaviour is a genuine interview trap. Floor division pairs with a remainder
 that always has the **same sign as the divisor**, so `divmod(-7, 2) == (-4, 1)`. Memorise it.

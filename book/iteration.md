@@ -62,8 +62,55 @@ def repeat(character):
     return repeated
 ```
 
-`range(5)` yields `0, 1, 2, 3, 4`. We don't use the loop variable, so we name it `_` by
-convention. `+=` appends to the string. Run the tests again and they're green.
+`range(5)` yields `0, 1, 2, 3, 4`, so the body runs five times. We don't use the loop variable,
+so we name it `_` by convention. `+=` appends to the string. Run the tests again and they're
+green.
+
+## How a for loop works
+
+If you've come from a C-style language, you might expect to manage an index by hand: set a
+counter to zero, check it against a length, bump it each pass. Python's `for` loop doesn't work
+like that. It walks an *iterable* one element at a time, binding each element to the loop
+variable for you. There's no index and no counter to get wrong.
+
+An iterable is anything you can step through. A list is iterable, and the loop variable takes
+each element in turn:
+
+```python
+for item in [10, 20, 30]:
+    print(item)
+# prints 10, then 20, then 30
+```
+
+A string is iterable too, and stepping through it yields its characters one at a time:
+
+```python
+for letter in "hi":
+    print(letter)
+# prints "h", then "i"
+```
+
+So `for x in something` is the same shape every time: `something` hands over its elements one by
+one, and `x` is bound to each.
+
+`range` is just one more iterable. It doesn't build a list in memory; it produces numbers on
+demand, which is why it's handy for counting. It comes in three forms:
+
+- `range(stop)` counts from `0` up to but *not* including `stop`. `range(5)` gives
+  `0, 1, 2, 3, 4`.
+- `range(start, stop)` lets you pick where to begin. `range(2, 6)` gives `2, 3, 4, 5`. The stop
+  is always excluded, so to count `2` through `6` *inclusive* you push the stop one past it:
+  `range(2, 7)`. (That `+ 1` on the stop is the trick behind `range(1, count + 1)` and friends.)
+- `range(start, stop, step)` takes a stride. `range(0, 10, 2)` gives the evens `0, 2, 4, 6, 8`.
+
+That's the whole loop in our `repeat`: `range(count)` produces the right number of values, and we
+ignore each one because we only care about how *many* times the body runs.
+
+When you do need the position as well as the element, `enumerate` pairs an index with each value:
+`for index, item in enumerate(["a", "b"]):` binds two names at once and gives you `(0, "a")` then
+`(1, "b")`. And when you're looping until a condition rather than over a collection, that's the job
+of `while`: `while n > 0:` runs its body again and again until `n` stops being positive. You'll
+reach for `while` far less often than `for`.
 
 ## Refactor
 
@@ -190,7 +237,10 @@ We'll lean on `join` throughout the string and pattern chapters.
 
 ## Wrapping up
 
-- **`for ... in range(n)`** is the workhorse loop; name the unused variable `_`.
+- **`for x in iterable`** walks any iterable (list, string, `range`) one element at a time,
+  binding each to the loop variable; name the unused variable `_`.
+- **`range` is just one iterable**: `range(stop)`, `range(start, stop)`, and
+  `range(start, stop, step)`, with the stop always excluded.
 - **Test the zero/empty boundary**: `range(0)` runs the body zero times.
 - **`str * int` repeats a string**; prefer idiomatic Python once tests have your back.
 - **Strings are immutable**: build big strings with a list and `"".join(...)`, not `+=`.

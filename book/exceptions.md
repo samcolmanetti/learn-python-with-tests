@@ -82,6 +82,10 @@ We want `parse_age` to *reject* non-numeric input instead of letting `int` raise
 likes. The way you signal "this input is wrong" is the `raise` statement, and the way you assert
 that a function raises is `pytest.raises`.
 
+A note on words if you're coming from Java, C++, or JavaScript: Python *raises* exceptions, it
+doesn't *throw* them, and you catch them with `try`/`except`, not `try`/`catch`. Same idea, different
+keywords, and the wrong ones won't even parse.
+
 ### Write the test first
 
 ```python
@@ -148,6 +152,26 @@ Both tests pass, and the function reads cleanly. **The `{raw!r}` in the f-string
 the message shows `'forty'` with quotes** rather than a bare `forty`, which makes "is this an empty
 string or whitespace?" obvious in a log. That's worth keeping. Move on.
 
+## The built-in exceptions you'll meet
+
+We reached for `ValueError` above, but it's one of a handful you'll hit constantly. Here are the
+common ones and what sets each off:
+
+| Exception | What triggers it |
+|-----------|------------------|
+| `ValueError` | Right type, wrong content, like `int("forty")`. |
+| `TypeError` | An operation on the wrong kind of object, like `len(5)`. |
+| `KeyError` | A dict key that isn't there, like `{}["age"]`. |
+| `IndexError` | A list index past the end, like `[1, 2][5]`. |
+| `ZeroDivisionError` | Dividing by zero, like `1 / 0`. |
+| `AttributeError` | An attribute that doesn't exist, like `"hi".nope`. |
+| `StopIteration` | An iterator that's run out, raised by `next()` with nothing left. |
+
+Every one of these inherits from `Exception`, and `Exception` in turn inherits from `BaseException`.
+That hierarchy is why `except Exception` catches all of them in one go, and it's the hook we're
+about to use: when you want your own error type, you subclass `Exception` and it slots right into the
+same family the built-ins live in.
+
 ## Repeat for new requirements
 
 A `ValueError` is fine, but every caller now has to catch `ValueError` and hope it came from us and
@@ -202,8 +226,8 @@ Run `uv run pytest`:
 ```
     def parse_age(raw):
         if not raw.isdigit():
->           raise ValueError("bad age")
-E           ValueError: bad age
+>           raise ValueError(f"age must be digits, got {raw!r}")
+E           ValueError: age must be digits, got 'forty'
 ```
 
 The `ValueError` escaped because `pytest.raises(ValidationError)` only swallows a `ValidationError`.
@@ -462,4 +486,4 @@ tests one last time. Green.
 - **`except` catches, `else` runs only on success, `finally` runs always.** A bare `raise` inside
   `except` re-raises the current exception with its traceback intact.
 - **`DID NOT RAISE`** is the failing output you'll see whenever a `pytest.raises` block finishes
-  without throwing. Treat it like any other red test: the thing you expected didn't happen.
+  without raising. Treat it like any other red test: the thing you expected didn't happen.
