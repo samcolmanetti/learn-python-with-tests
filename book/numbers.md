@@ -198,6 +198,15 @@ def divide(a, b):
 
 The tests pass.
 
+That `raise` is worth a pause if you're coming from another language. Python *raises* exceptions
+rather than *throwing* them, and you catch them with `try`/`except`, not `try`/`catch`. An exception
+is just an object you signal with `raise`. The built-in ones you'll hit most are `ValueError` (a
+value of the right type but wrong content, like the negative factorial we reject in a moment),
+`TypeError` (the wrong kind of thing entirely), and `KeyError` and `IndexError` (a missing dict key
+or an out-of-range list index). `ZeroDivisionError` is the one Python itself raises for `1 / 0`, and
+we raise it deliberately here. In the tests, `pytest.raises` is the mirror image: it asserts that
+the code under it raised what you expected. [Exceptions](exceptions.md) goes into the full picture.
+
 That `-7 // 2 == -4` behaviour is a genuine interview trap. Floor division pairs with a remainder
 that always has the **same sign as the divisor**, so `divmod(-7, 2) == (-4, 1)`. Memorise it.
 
@@ -280,9 +289,20 @@ def factorial(n):
 
 Green.
 
-No special "big integer" type, no overflow checks, it just works. The loop starts at `2` because
-multiplying by `1` would be a no-op, and `factorial(0)` falls out correctly: the range is empty,
-so `result` stays `1`.
+If you haven't met Python's `for` loop yet, it walks a sequence one item at a time and binds each
+to the loop variable, with no index bookkeeping. The sequence here is a `range`, Python's lazy
+counter:
+
+- `range(stop)` counts from `0` up to but *not* including `stop`, so `range(5)` is `0, 1, 2, 3, 4`.
+- `range(start, stop)` starts where you say, so `range(2, n + 1)` counts `2, 3, ..., n`. The `+ 1`
+  is there precisely because the stop is excluded, and we want `n` itself included.
+- `range(start, stop, step)` takes a stride, so `range(0, 10, 2)` yields the evens `0, 2, 4, 6, 8`.
+
+[Control flow](control-flow.md) covers loops in full. Here the range starts at `2` because
+multiplying by `1` would be a no-op, and `factorial(0)` falls out correctly: `range(2, 1)` is empty,
+so the loop never runs and `result` stays `1`.
+
+No special "big integer" type and no overflow checks, it just works.
 
 ### Refactor
 
