@@ -22,6 +22,9 @@ node_modules/
 # Tooling run artifacts
 .context/
 
+# Planning docs — local working notes, not part of the published repo
+docs/plans/
+
 # eBook build output
 *.epub
 *.mobi
