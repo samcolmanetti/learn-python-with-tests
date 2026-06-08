@@ -108,6 +108,20 @@
   opacity: 1;
 }
 
+/* No loading flash on navigation. Honkit's client-side nav adds `.book.is-loading`
+   for the duration of the fetch, and the theme uses that to HIDE the title anchor
+   (`h1 a`) and SHOW a spinning `fa-circle-o-notch` in its place. Every page is
+   already built and on disk, so the fetch is near-instant and this just flashes
+   the title into a spinner and back on every sidebar click. Keep the title put and
+   never show the spinner. These selectors match the theme's exactly and win on
+   source order (this file loads last), so no `!important` is needed. */
+.book.is-loading .book-header h1 a {
+  display: inline-flex;
+}
+.book.is-loading .book-header h1 i {
+  display: none;
+}
+
 .book .book-header h1 a,
 .book .book-header h1 a:hover {
   display: inline-flex;
