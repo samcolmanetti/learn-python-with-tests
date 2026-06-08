@@ -73,11 +73,12 @@ moving, and we have. From here on each new requirement gets the same treatment.
 ## Division done right
 
 Our next requirement is division, and division is where Python surprises people. There are
-**two** operators:
+**three** operators:
 
 - `/` is *true division* and always returns a `float`: `7 / 2 == 3.5`.
 - `//` is *floor division* and rounds toward negative infinity: `7 // 2 == 3`, but
   `-7 // 2 == -4` (not `-3`).
+- `%` is the *remainder* (or *modulo*): `7 % 2 == 1`. It's the leftover after floor division.
 
 The negative case is the one people get wrong, so it's worth doing by hand. Read `a // b` as two
 steps: do the real division, then *floor* the result, where "floor" means round down to the
@@ -101,8 +102,30 @@ the left:
 
 `-3.5` sits between `-4` and `-3`, and flooring takes the integer to its left, so `-4` wins.
 
-The built-in `divmod(a, b)` returns `(quotient, remainder)` together, which is exactly what you
+`%` is the partner of `//`. The remainder is whatever is left of `a` after you take out the whole
+multiples the quotient counted: `a % b == a - (a // b) * b`. So `1 % 10 == 1`, because zero tens
+come out of `1` and the whole `1` is left over (it is *not* `10`). The remainder is always smaller
+in magnitude than the divisor and takes the divisor's sign, which is why `-7 % 2 == 1`. Put the two
+together and `(a // b) * b + (a % b)` always rebuilds `a`.
+
+The built-in `divmod(a, b)` hands you both at once as `(a // b, a % b)`, which is exactly what you
 want for digit-extraction and grid-coordinate problems.
+
+That grid case is worth seeing concretely, because it comes up constantly. Interview problems often
+hand you a grid as a flat list and a single index, or ask you to treat a 1D array *as if* it were a
+grid. If a grid has `cols` columns and you store it row by row, then cell `(row, col)` lives at flat
+index `row * cols + col`. To go the other way, from a flat index back to `(row, col)`, that is just
+floor division and remainder, so `divmod` does it in one call:
+
+```python
+cols = 4  # a 3-by-4 grid flattened row by row
+row, col = divmod(7, cols)   # (1, 3): index 7 is row 1, column 3
+flat = row * cols + col      # 7 again, the inverse
+```
+
+`index // cols` counts how many whole rows you pass before landing on the cell (the row), and
+`index % cols` is how far along that row you stop (the column). It's the same quotient-and-remainder
+pair, just renamed: the quotient is the row, the remainder is the column.
 
 ### Write the test first
 
@@ -269,8 +292,8 @@ because you never have to worry about integer overflow in Python. Re-run the tes
 
 ## Wrapping up
 
-- **`/` is float division, `//` is floor division**, and `divmod` gives you quotient and
-  remainder in one call.
+- **`/` is float division, `//` is floor division, `%` is the remainder**, and `divmod` gives you
+  the quotient and remainder in one call.
 - **Floor division rounds toward negative infinity**, and the remainder takes the divisor's sign:
   `divmod(-7, 2) == (-4, 1)`.
 - **Python integers never overflow.** Factorials, big sums, and bit tricks on huge numbers are
